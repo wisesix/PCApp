@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
@@ -25,9 +26,10 @@ public class WXPumbController {
 	
 	@RequestMapping(value = "/getpump")
 	@ResponseBody
-	public void getpump(PrintWriter printWriter,String code,HttpSession session) {
+	public void getpump(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
+		String code = request.getParameter("code");
 		if(!StringUtils.isBlank(code) && !StringUtils.isBlank(code)) {
 			Pump pump = pumpService.fingPumpbycode(code);
 			System.out.println("////////////////////////////////");
@@ -39,6 +41,5 @@ public class WXPumbController {
 		}
 		printWriter.write(JSON.toJSONString(map));
 	}
-	
 	
 }
