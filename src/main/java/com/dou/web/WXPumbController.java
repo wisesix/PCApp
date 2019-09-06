@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
 import com.dou.domain.Pump;
-import com.dou.domain.Userinfo;
 import com.dou.service.PumpService;
 
 @RestController
 @RequestMapping(value = "/weixinpump")
 public class WXPumbController {
+	
 	@Autowired
 	private PumpService pumpService;
 	
@@ -30,16 +30,18 @@ public class WXPumbController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
 		String code = request.getParameter("code");
+		System.out.println(code);
 		if(!StringUtils.isBlank(code) && !StringUtils.isBlank(code)) {
 			Pump pump = pumpService.fingPumpbycode(code);
 			System.out.println("////////////////////////////////");
 			if(pump!=null) {
 				if(pump.getCode().equals(code)) {
-					map.put("res", 1);
+					map.put("res", code);
 				}
 			}
 		}
 		printWriter.write(JSON.toJSONString(map));
 	}
+	
 	
 }

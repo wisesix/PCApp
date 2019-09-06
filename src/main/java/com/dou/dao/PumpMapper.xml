@@ -306,7 +306,7 @@
   
   
   
-  <select id="fingPumpbycode" parameterType="java.lang.String" resultType="com.dou.domain.Userinfo">
+  <select id="fingPumpbycode" parameterType="java.lang.String" resultType="com.dou.domain.Pump">
   select * from tb_pump where code =#{code}
   </select>
   
