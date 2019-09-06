@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.PaylogsMapper">
+  <resultMap id="BaseResultMap" type="com.dou.domain.Paylogs">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="Idnumber" jdbcType="VARCHAR" property="idnumber" />
+    <result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+    <result column="time" jdbcType="DATE" property="time" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+    <result column="staus" jdbcType="DOUBLE" property="staus" />
+    <result column="ptime" jdbcType="DATE" property="ptime" />
+    <result column="pmoney" jdbcType="DOUBLE" property="pmoney" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, name, Idnumber, machinecde, time, money, staus, ptime, pmoney
+  </sql>
+  <select id="selectByExample" parameterType="com.dou.domain.PaylogsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_paylogs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_paylogs
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_paylogs
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dou.domain.PaylogsExample">
+    delete from tb_paylogs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dou.domain.Paylogs">
+    insert into tb_paylogs (id, name, Idnumber, 
+      machinecde, time, money, 
+      staus, ptime, pmoney)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, 
+      #{machinecde,jdbcType=VARCHAR}, #{time,jdbcType=DATE}, #{money,jdbcType=DOUBLE}, 
+      #{staus,jdbcType=DOUBLE}, #{ptime,jdbcType=DATE}, #{pmoney,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dou.domain.Paylogs">
+    insert into tb_paylogs
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="idnumber != null">
+        Idnumber,
+      </if>
+      <if test="machinecde != null">
+        machinecde,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="staus != null">
+        staus,
+      </if>
+      <if test="ptime != null">
+        ptime,
+      </if>
+      <if test="pmoney != null">
+        pmoney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="machinecde != null">
+        #{machinecde,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=DATE},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="staus != null">
+        #{staus,jdbcType=DOUBLE},
+      </if>
+      <if test="ptime != null">
+        #{ptime,jdbcType=DATE},
+      </if>
+      <if test="pmoney != null">
+        #{pmoney,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dou.domain.PaylogsExample" resultType="java.lang.Long">
+    select count(*) from tb_paylogs
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_paylogs
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idnumber != null">
+        Idnumber = #{record.idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.machinecde != null">
+        machinecde = #{record.machinecde,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=DATE},
+      </if>
+      <if test="record.money != null">
+        money = #{record.money,jdbcType=DOUBLE},
+      </if>
+      <if test="record.staus != null">
+        staus = #{record.staus,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ptime != null">
+        ptime = #{record.ptime,jdbcType=DATE},
+      </if>
+      <if test="record.pmoney != null">
+        pmoney = #{record.pmoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_paylogs
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      Idnumber = #{record.idnumber,jdbcType=VARCHAR},
+      machinecde = #{record.machinecde,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=DATE},
+      money = #{record.money,jdbcType=DOUBLE},
+      staus = #{record.staus,jdbcType=DOUBLE},
+      ptime = #{record.ptime,jdbcType=DATE},
+      pmoney = #{record.pmoney,jdbcType=DOUBLE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dou.domain.Paylogs">
+    update tb_paylogs
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null">
+        Idnumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="machinecde != null">
+        machinecde = #{machinecde,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=DATE},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="staus != null">
+        staus = #{staus,jdbcType=DOUBLE},
+      </if>
+      <if test="ptime != null">
+        ptime = #{ptime,jdbcType=DATE},
+      </if>
+      <if test="pmoney != null">
+        pmoney = #{pmoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dou.domain.Paylogs">
+    update tb_paylogs
+    set name = #{name,jdbcType=VARCHAR},
+      Idnumber = #{idnumber,jdbcType=VARCHAR},
+      machinecde = #{machinecde,jdbcType=VARCHAR},
+      time = #{time,jdbcType=DATE},
+      money = #{money,jdbcType=DOUBLE},
+      staus = #{staus,jdbcType=DOUBLE},
+      ptime = #{ptime,jdbcType=DATE},
+      pmoney = #{pmoney,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

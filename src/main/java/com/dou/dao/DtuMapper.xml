@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.DtuMapper">
+  <resultMap id="BaseResultMap" type="com.dou.domain.Dtu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="Port" jdbcType="INTEGER" property="port" />
+    <result column="Lng" jdbcType="VARCHAR" property="lng" />
+    <result column="Lat" jdbcType="VARCHAR" property="lat" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, AddTime, phone, IP, Port, Lng, Lat, Name
+  </sql>
+  <select id="selectByExample" parameterType="com.dou.domain.DtuExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_dtu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_dtu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_dtu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dou.domain.DtuExample">
+    delete from tb_dtu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dou.domain.Dtu">
+    insert into tb_dtu (id, AddTime, phone, 
+      IP, Port, Lng, Lat, 
+      Name)
+    values (#{id,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{port,jdbcType=INTEGER}, #{lng,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dou.domain.Dtu">
+    insert into tb_dtu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="port != null">
+        Port,
+      </if>
+      <if test="lng != null">
+        Lng,
+      </if>
+      <if test="lat != null">
+        Lat,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dou.domain.DtuExample" resultType="java.lang.Long">
+    select count(*) from tb_dtu
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_dtu
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null">
+        AddTime = #{record.addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ip != null">
+        IP = #{record.ip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.port != null">
+        Port = #{record.port,jdbcType=INTEGER},
+      </if>
+      <if test="record.lng != null">
+        Lng = #{record.lng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lat != null">
+        Lat = #{record.lat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_dtu
+    set id = #{record.id,jdbcType=INTEGER},
+      AddTime = #{record.addtime,jdbcType=TIMESTAMP},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      IP = #{record.ip,jdbcType=VARCHAR},
+      Port = #{record.port,jdbcType=INTEGER},
+      Lng = #{record.lng,jdbcType=VARCHAR},
+      Lat = #{record.lat,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dou.domain.Dtu">
+    update tb_dtu
+    <set>
+      <if test="addtime != null">
+        AddTime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null">
+        Port = #{port,jdbcType=INTEGER},
+      </if>
+      <if test="lng != null">
+        Lng = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        Lat = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dou.domain.Dtu">
+    update tb_dtu
+    set AddTime = #{addtime,jdbcType=TIMESTAMP},
+      phone = #{phone,jdbcType=VARCHAR},
+      IP = #{ip,jdbcType=VARCHAR},
+      Port = #{port,jdbcType=INTEGER},
+      Lng = #{lng,jdbcType=VARCHAR},
+      Lat = #{lat,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

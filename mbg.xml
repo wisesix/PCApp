@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 配置数据库连接 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/waterp" userId="root"
+			password="root">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 指定javaBean生成的位置 -->
+		<javaModelGenerator targetPackage="com.dou.domain"
+			targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--指定sql映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="com.dou.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 指定dao接口生成的位置，mapper接口 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.dou.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<!-- table指定每个表的生成策略 -->
+		<table tableName="tb_userinfo" domainObjectName="Userinfo"></table>
+		<table tableName="tb_pump" domainObjectName="Pump"></table>
+		<table tableName="tb_machine" domainObjectName="Machine"></table>
+		<table tableName="tb_dtu" domainObjectName="Dtu"></table>
+		<table tableName="tb_loraterminal" domainObjectName="Loraterminal"></table>
+		<table tableName="tb_operator" domainObjectName="Operator"></table>
+		<table tableName="tb_operatorlogs" domainObjectName="Operatorlogs"></table>
+		<table tableName="tb_paylogs" domainObjectName="Paylogs"></table>
+		<table tableName="tb_pumphistorical" domainObjectName="Pumphistorical"></table>
+		<table tableName="tb_pumptable" domainObjectName="Pumptable"></table>
+		<table tableName="tb_realtimepump" domainObjectName="Realtimepump"></table>
+		<table tableName="tb_sysparameter" domainObjectName="Sysparameter"></table>
+		<table tableName="tb_technician" domainObjectName="Technician"></table>
+		<table tableName="tb_userschedule" domainObjectName="Userschedule"></table>
+		<table tableName="tb_village" domainObjectName="Village"></table>
+		<table tableName="tb_watercock" domainObjectName="Watercock"></table>
+		<table tableName="tb_waterhistor" domainObjectName="Waterhistor"></table>
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.LoraterminalMapper">
+  <resultMap id="BaseResultMap" type="com.dou.domain.Loraterminal">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="RefreshTime" jdbcType="TIMESTAMP" property="refreshtime" />
+    <result column="Address" jdbcType="INTEGER" property="address" />
+    <result column="DI01" jdbcType="INTEGER" property="di01" />
+    <result column="DI02" jdbcType="INTEGER" property="di02" />
+    <result column="DI03" jdbcType="INTEGER" property="di03" />
+    <result column="DI04" jdbcType="INTEGER" property="di04" />
+    <result column="D001" jdbcType="INTEGER" property="d001" />
+    <result column="D002" jdbcType="INTEGER" property="d002" />
+    <result column="D003" jdbcType="INTEGER" property="d003" />
+    <result column="D004" jdbcType="INTEGER" property="d004" />
+    <result column="AI01" jdbcType="REAL" property="ai01" />
+    <result column="AI02" jdbcType="REAL" property="ai02" />
+    <result column="A001" jdbcType="REAL" property="a001" />
+    <result column="A002" jdbcType="REAL" property="a002" />
+    <result column="C1_D001" jdbcType="INTEGER" property="c1D001" />
+    <result column="C1_D002" jdbcType="INTEGER" property="c1D002" />
+    <result column="C0_D001" jdbcType="INTEGER" property="c0D001" />
+    <result column="C0_D002" jdbcType="INTEGER" property="c0D002" />
+    <result column="Sflow" jdbcType="REAL" property="sflow" />
+    <result column="Lflow" jdbcType="REAL" property="lflow" />
+    <result column="DtuId" jdbcType="INTEGER" property="dtuid" />
+    <result column="Lng" jdbcType="VARCHAR" property="lng" />
+    <result column="Lat" jdbcType="VARCHAR" property="lat" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="BatteryVoltage" jdbcType="REAL" property="batteryvoltage" />
+    <result column="Terminaltemperature" jdbcType="REAL" property="terminaltemperature" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    Id, RefreshTime, Address, DI01, DI02, DI03, DI04, D001, D002, D003, D004, AI01, AI02, 
+    A001, A002, C1_D001, C1_D002, C0_D001, C0_D002, Sflow, Lflow, DtuId, Lng, Lat, Name, 
+    BatteryVoltage, Terminaltemperature
+  </sql>
+  <select id="selectByExample" parameterType="com.dou.domain.LoraterminalExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_loraterminal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_loraterminal
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_loraterminal
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dou.domain.LoraterminalExample">
+    delete from tb_loraterminal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dou.domain.Loraterminal">
+    insert into tb_loraterminal (Id, RefreshTime, Address, 
+      DI01, DI02, DI03, DI04, 
+      D001, D002, D003, D004, 
+      AI01, AI02, A001, A002, 
+      C1_D001, C1_D002, C0_D001, 
+      C0_D002, Sflow, Lflow, DtuId, 
+      Lng, Lat, Name, BatteryVoltage, 
+      Terminaltemperature)
+    values (#{id,jdbcType=INTEGER}, #{refreshtime,jdbcType=TIMESTAMP}, #{address,jdbcType=INTEGER}, 
+      #{di01,jdbcType=INTEGER}, #{di02,jdbcType=INTEGER}, #{di03,jdbcType=INTEGER}, #{di04,jdbcType=INTEGER}, 
+      #{d001,jdbcType=INTEGER}, #{d002,jdbcType=INTEGER}, #{d003,jdbcType=INTEGER}, #{d004,jdbcType=INTEGER}, 
+      #{ai01,jdbcType=REAL}, #{ai02,jdbcType=REAL}, #{a001,jdbcType=REAL}, #{a002,jdbcType=REAL}, 
+      #{c1D001,jdbcType=INTEGER}, #{c1D002,jdbcType=INTEGER}, #{c0D001,jdbcType=INTEGER}, 
+      #{c0D002,jdbcType=INTEGER}, #{sflow,jdbcType=REAL}, #{lflow,jdbcType=REAL}, #{dtuid,jdbcType=INTEGER}, 
+      #{lng,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{batteryvoltage,jdbcType=REAL}, 
+      #{terminaltemperature,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dou.domain.Loraterminal">
+    insert into tb_loraterminal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="refreshtime != null">
+        RefreshTime,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="di01 != null">
+        DI01,
+      </if>
+      <if test="di02 != null">
+        DI02,
+      </if>
+      <if test="di03 != null">
+        DI03,
+      </if>
+      <if test="di04 != null">
+        DI04,
+      </if>
+      <if test="d001 != null">
+        D001,
+      </if>
+      <if test="d002 != null">
+        D002,
+      </if>
+      <if test="d003 != null">
+        D003,
+      </if>
+      <if test="d004 != null">
+        D004,
+      </if>
+      <if test="ai01 != null">
+        AI01,
+      </if>
+      <if test="ai02 != null">
+        AI02,
+      </if>
+      <if test="a001 != null">
+        A001,
+      </if>
+      <if test="a002 != null">
+        A002,
+      </if>
+      <if test="c1D001 != null">
+        C1_D001,
+      </if>
+      <if test="c1D002 != null">
+        C1_D002,
+      </if>
+      <if test="c0D001 != null">
+        C0_D001,
+      </if>
+      <if test="c0D002 != null">
+        C0_D002,
+      </if>
+      <if test="sflow != null">
+        Sflow,
+      </if>
+      <if test="lflow != null">
+        Lflow,
+      </if>
+      <if test="dtuid != null">
+        DtuId,
+      </if>
+      <if test="lng != null">
+        Lng,
+      </if>
+      <if test="lat != null">
+        Lat,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="batteryvoltage != null">
+        BatteryVoltage,
+      </if>
+      <if test="terminaltemperature != null">
+        Terminaltemperature,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="refreshtime != null">
+        #{refreshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=INTEGER},
+      </if>
+      <if test="di01 != null">
+        #{di01,jdbcType=INTEGER},
+      </if>
+      <if test="di02 != null">
+        #{di02,jdbcType=INTEGER},
+      </if>
+      <if test="di03 != null">
+        #{di03,jdbcType=INTEGER},
+      </if>
+      <if test="di04 != null">
+        #{di04,jdbcType=INTEGER},
+      </if>
+      <if test="d001 != null">
+        #{d001,jdbcType=INTEGER},
+      </if>
+      <if test="d002 != null">
+        #{d002,jdbcType=INTEGER},
+      </if>
+      <if test="d003 != null">
+        #{d003,jdbcType=INTEGER},
+      </if>
+      <if test="d004 != null">
+        #{d004,jdbcType=INTEGER},
+      </if>
+      <if test="ai01 != null">
+        #{ai01,jdbcType=REAL},
+      </if>
+      <if test="ai02 != null">
+        #{ai02,jdbcType=REAL},
+      </if>
+      <if test="a001 != null">
+        #{a001,jdbcType=REAL},
+      </if>
+      <if test="a002 != null">
+        #{a002,jdbcType=REAL},
+      </if>
+      <if test="c1D001 != null">
+        #{c1D001,jdbcType=INTEGER},
+      </if>
+      <if test="c1D002 != null">
+        #{c1D002,jdbcType=INTEGER},
+      </if>
+      <if test="c0D001 != null">
+        #{c0D001,jdbcType=INTEGER},
+      </if>
+      <if test="c0D002 != null">
+        #{c0D002,jdbcType=INTEGER},
+      </if>
+      <if test="sflow != null">
+        #{sflow,jdbcType=REAL},
+      </if>
+      <if test="lflow != null">
+        #{lflow,jdbcType=REAL},
+      </if>
+      <if test="dtuid != null">
+        #{dtuid,jdbcType=INTEGER},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryvoltage != null">
+        #{batteryvoltage,jdbcType=REAL},
+      </if>
+      <if test="terminaltemperature != null">
+        #{terminaltemperature,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dou.domain.LoraterminalExample" resultType="java.lang.Long">
+    select count(*) from tb_loraterminal
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_loraterminal
+    <set>
+      <if test="record.id != null">
+        Id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.refreshtime != null">
+        RefreshTime = #{record.refreshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.address != null">
+        Address = #{record.address,jdbcType=INTEGER},
+      </if>
+      <if test="record.di01 != null">
+        DI01 = #{record.di01,jdbcType=INTEGER},
+      </if>
+      <if test="record.di02 != null">
+        DI02 = #{record.di02,jdbcType=INTEGER},
+      </if>
+      <if test="record.di03 != null">
+        DI03 = #{record.di03,jdbcType=INTEGER},
+      </if>
+      <if test="record.di04 != null">
+        DI04 = #{record.di04,jdbcType=INTEGER},
+      </if>
+      <if test="record.d001 != null">
+        D001 = #{record.d001,jdbcType=INTEGER},
+      </if>
+      <if test="record.d002 != null">
+        D002 = #{record.d002,jdbcType=INTEGER},
+      </if>
+      <if test="record.d003 != null">
+        D003 = #{record.d003,jdbcType=INTEGER},
+      </if>
+      <if test="record.d004 != null">
+        D004 = #{record.d004,jdbcType=INTEGER},
+      </if>
+      <if test="record.ai01 != null">
+        AI01 = #{record.ai01,jdbcType=REAL},
+      </if>
+      <if test="record.ai02 != null">
+        AI02 = #{record.ai02,jdbcType=REAL},
+      </if>
+      <if test="record.a001 != null">
+        A001 = #{record.a001,jdbcType=REAL},
+      </if>
+      <if test="record.a002 != null">
+        A002 = #{record.a002,jdbcType=REAL},
+      </if>
+      <if test="record.c1D001 != null">
+        C1_D001 = #{record.c1D001,jdbcType=INTEGER},
+      </if>
+      <if test="record.c1D002 != null">
+        C1_D002 = #{record.c1D002,jdbcType=INTEGER},
+      </if>
+      <if test="record.c0D001 != null">
+        C0_D001 = #{record.c0D001,jdbcType=INTEGER},
+      </if>
+      <if test="record.c0D002 != null">
+        C0_D002 = #{record.c0D002,jdbcType=INTEGER},
+      </if>
+      <if test="record.sflow != null">
+        Sflow = #{record.sflow,jdbcType=REAL},
+      </if>
+      <if test="record.lflow != null">
+        Lflow = #{record.lflow,jdbcType=REAL},
+      </if>
+      <if test="record.dtuid != null">
+        DtuId = #{record.dtuid,jdbcType=INTEGER},
+      </if>
+      <if test="record.lng != null">
+        Lng = #{record.lng,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lat != null">
+        Lat = #{record.lat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.batteryvoltage != null">
+        BatteryVoltage = #{record.batteryvoltage,jdbcType=REAL},
+      </if>
+      <if test="record.terminaltemperature != null">
+        Terminaltemperature = #{record.terminaltemperature,jdbcType=REAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_loraterminal
+    set Id = #{record.id,jdbcType=INTEGER},
+      RefreshTime = #{record.refreshtime,jdbcType=TIMESTAMP},
+      Address = #{record.address,jdbcType=INTEGER},
+      DI01 = #{record.di01,jdbcType=INTEGER},
+      DI02 = #{record.di02,jdbcType=INTEGER},
+      DI03 = #{record.di03,jdbcType=INTEGER},
+      DI04 = #{record.di04,jdbcType=INTEGER},
+      D001 = #{record.d001,jdbcType=INTEGER},
+      D002 = #{record.d002,jdbcType=INTEGER},
+      D003 = #{record.d003,jdbcType=INTEGER},
+      D004 = #{record.d004,jdbcType=INTEGER},
+      AI01 = #{record.ai01,jdbcType=REAL},
+      AI02 = #{record.ai02,jdbcType=REAL},
+      A001 = #{record.a001,jdbcType=REAL},
+      A002 = #{record.a002,jdbcType=REAL},
+      C1_D001 = #{record.c1D001,jdbcType=INTEGER},
+      C1_D002 = #{record.c1D002,jdbcType=INTEGER},
+      C0_D001 = #{record.c0D001,jdbcType=INTEGER},
+      C0_D002 = #{record.c0D002,jdbcType=INTEGER},
+      Sflow = #{record.sflow,jdbcType=REAL},
+      Lflow = #{record.lflow,jdbcType=REAL},
+      DtuId = #{record.dtuid,jdbcType=INTEGER},
+      Lng = #{record.lng,jdbcType=VARCHAR},
+      Lat = #{record.lat,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      BatteryVoltage = #{record.batteryvoltage,jdbcType=REAL},
+      Terminaltemperature = #{record.terminaltemperature,jdbcType=REAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dou.domain.Loraterminal">
+    update tb_loraterminal
+    <set>
+      <if test="refreshtime != null">
+        RefreshTime = #{refreshtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=INTEGER},
+      </if>
+      <if test="di01 != null">
+        DI01 = #{di01,jdbcType=INTEGER},
+      </if>
+      <if test="di02 != null">
+        DI02 = #{di02,jdbcType=INTEGER},
+      </if>
+      <if test="di03 != null">
+        DI03 = #{di03,jdbcType=INTEGER},
+      </if>
+      <if test="di04 != null">
+        DI04 = #{di04,jdbcType=INTEGER},
+      </if>
+      <if test="d001 != null">
+        D001 = #{d001,jdbcType=INTEGER},
+      </if>
+      <if test="d002 != null">
+        D002 = #{d002,jdbcType=INTEGER},
+      </if>
+      <if test="d003 != null">
+        D003 = #{d003,jdbcType=INTEGER},
+      </if>
+      <if test="d004 != null">
+        D004 = #{d004,jdbcType=INTEGER},
+      </if>
+      <if test="ai01 != null">
+        AI01 = #{ai01,jdbcType=REAL},
+      </if>
+      <if test="ai02 != null">
+        AI02 = #{ai02,jdbcType=REAL},
+      </if>
+      <if test="a001 != null">
+        A001 = #{a001,jdbcType=REAL},
+      </if>
+      <if test="a002 != null">
+        A002 = #{a002,jdbcType=REAL},
+      </if>
+      <if test="c1D001 != null">
+        C1_D001 = #{c1D001,jdbcType=INTEGER},
+      </if>
+      <if test="c1D002 != null">
+        C1_D002 = #{c1D002,jdbcType=INTEGER},
+      </if>
+      <if test="c0D001 != null">
+        C0_D001 = #{c0D001,jdbcType=INTEGER},
+      </if>
+      <if test="c0D002 != null">
+        C0_D002 = #{c0D002,jdbcType=INTEGER},
+      </if>
+      <if test="sflow != null">
+        Sflow = #{sflow,jdbcType=REAL},
+      </if>
+      <if test="lflow != null">
+        Lflow = #{lflow,jdbcType=REAL},
+      </if>
+      <if test="dtuid != null">
+        DtuId = #{dtuid,jdbcType=INTEGER},
+      </if>
+      <if test="lng != null">
+        Lng = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        Lat = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="batteryvoltage != null">
+        BatteryVoltage = #{batteryvoltage,jdbcType=REAL},
+      </if>
+      <if test="terminaltemperature != null">
+        Terminaltemperature = #{terminaltemperature,jdbcType=REAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dou.domain.Loraterminal">
+    update tb_loraterminal
+    set RefreshTime = #{refreshtime,jdbcType=TIMESTAMP},
+      Address = #{address,jdbcType=INTEGER},
+      DI01 = #{di01,jdbcType=INTEGER},
+      DI02 = #{di02,jdbcType=INTEGER},
+      DI03 = #{di03,jdbcType=INTEGER},
+      DI04 = #{di04,jdbcType=INTEGER},
+      D001 = #{d001,jdbcType=INTEGER},
+      D002 = #{d002,jdbcType=INTEGER},
+      D003 = #{d003,jdbcType=INTEGER},
+      D004 = #{d004,jdbcType=INTEGER},
+      AI01 = #{ai01,jdbcType=REAL},
+      AI02 = #{ai02,jdbcType=REAL},
+      A001 = #{a001,jdbcType=REAL},
+      A002 = #{a002,jdbcType=REAL},
+      C1_D001 = #{c1D001,jdbcType=INTEGER},
+      C1_D002 = #{c1D002,jdbcType=INTEGER},
+      C0_D001 = #{c0D001,jdbcType=INTEGER},
+      C0_D002 = #{c0D002,jdbcType=INTEGER},
+      Sflow = #{sflow,jdbcType=REAL},
+      Lflow = #{lflow,jdbcType=REAL},
+      DtuId = #{dtuid,jdbcType=INTEGER},
+      Lng = #{lng,jdbcType=VARCHAR},
+      Lat = #{lat,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      BatteryVoltage = #{batteryvoltage,jdbcType=REAL},
+      Terminaltemperature = #{terminaltemperature,jdbcType=REAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
