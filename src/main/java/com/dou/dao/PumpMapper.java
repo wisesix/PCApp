@@ -29,4 +29,6 @@ public interface PumpMapper {
     int updateByPrimaryKey(Pump record);
 
 	Pump fingPumpbycode(String code);
+	//增加水泵信息方法
+	int inserPumpbycode(String code);
 }

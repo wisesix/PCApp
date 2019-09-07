@@ -20,4 +20,11 @@ public class PumpServiceImpl implements PumpService{
 		return PumpMapper.fingPumpbycode(code);
 	}
 
+
+	@Override
+	public int inserPumpbycode(String code) {
+		// TODO Auto-generated method stub
+		return PumpMapper.inserPumpbycode(code);
+	}
+
 }

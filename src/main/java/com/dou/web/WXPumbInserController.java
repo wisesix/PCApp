@@ -18,8 +18,8 @@ import com.dou.domain.Pump;
 import com.dou.service.PumpService;
 
 @RestController
-@RequestMapping(value = "/weixinpump")
-public class WXPumbController {
+@RequestMapping(value = "/inserpump")
+public class WXPumbInserController {
 	
 	@Autowired
 	private PumpService pumpService;
@@ -32,15 +32,11 @@ public class WXPumbController {
 		String code = request.getParameter("code");
 		System.out.println(code);
 		if(!StringUtils.isBlank(code) && !StringUtils.isBlank(code)) {
-			Pump pump = pumpService.fingPumpbycode(code);
-			if(pump!=null) {
-				if(pump.getCode().equals(code)) {
+			int pump = pumpService.inserPumpbycode(code);
 					map.put("res", code);
 				}
 			}
-		}
-		printWriter.write(JSON.toJSONString(map));
+	
 	}
 	
 	
-}

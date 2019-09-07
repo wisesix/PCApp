@@ -10,4 +10,8 @@ public interface PumpService {
 	
 	public Pump fingPumpbycode(String code);
 	
+	public int inserPumpbycode(String code);
+	
+	
+	
 }

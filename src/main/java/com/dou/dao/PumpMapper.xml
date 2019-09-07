@@ -309,11 +309,13 @@
   <select id="fingPumpbycode" parameterType="java.lang.String" resultType="com.dou.domain.Pump">
   select * from tb_pump where code =#{code}
   </select>
+ 
+  <insert id="inserPumpbycode" parameterType="com.dou.domain.Pump">
+    insert into tb_pump (code)
+    values (#{code,jdbcType=VARCHAR})
+  </insert>
   
   
-  
-  
-  
-  
+
   
 </mapper>
