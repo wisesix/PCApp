@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSON;
 import com.dou.domain.Userinfo;
 import com.dou.service.UserService;
-
+/*
+ * 	小程序登录接口
+ */
 @RestController
 @RequestMapping(value = "/weixinuser")
 public class WXUserController {

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.dou.domain.Machine;
+import com.dou.domain.WXPumpModel;
 
 public interface MachineConfigService {
 	
@@ -16,6 +17,7 @@ public interface MachineConfigService {
 	
 	public void updaMachine(Machine machine);
 	
-	
+	//录入水栓
+	int inserMachineinfo(Machine machine);
 	
 }

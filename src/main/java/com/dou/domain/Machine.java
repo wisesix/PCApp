@@ -1,155 +1,171 @@
 package com.dou.domain;
 
 public class Machine {
-    private Integer machineId;
 
-    private String machinecde;
+	private Integer id;
 
-    private String plugspec;
+	private String machinecde;
 
-    private String code;
+	private String plugspec;
 
-    private Integer usestatus;
+	private String code;
 
-    private Float voltage;
+	private Integer usestatus;
 
-    private Float current;
+	private Float voltage;
 
-    private Float power;
+	private Float current;
 
-    private String dtu;
+	private Float power;
 
-    private String dtuport;
+	private String dtu;
 
-    private String devicepeople;
+	private String dtuport;
 
-    private String localcoding;
+	private String devicepeople;
 
-    private Integer elelocksta;
+	private String localcoding;
 
-    private Integer valvesta;
-    
-    
-    
-    
+	private Integer elelocksta;
 
-    @Override
+	private Integer valvesta;
+
+	private String caliber;
+
+	
+	
+	@Override
 	public String toString() {
-		return "Machine [machineId=" + machineId + ", machinecde=" + machinecde + ", plugspec=" + plugspec + ", code="
-				+ code + ", usestatus=" + usestatus + ", voltage=" + voltage + ", current=" + current + ", power="
-				+ power + ", dtu=" + dtu + ", dtuport=" + dtuport + ", devicepeople=" + devicepeople + ", localcoding="
-				+ localcoding + ", elelocksta=" + elelocksta + ", valvesta=" + valvesta + "]";
+		return "Machine [id=" + id + ", machinecde=" + machinecde + ", plugspec=" + plugspec + ", code=" + code
+				+ ", usestatus=" + usestatus + ", voltage=" + voltage + ", current=" + current + ", power=" + power
+				+ ", dtu=" + dtu + ", dtuport=" + dtuport + ", devicepeople=" + devicepeople + ", localcoding="
+				+ localcoding + ", elelocksta=" + elelocksta + ", valvesta=" + valvesta + ", caliber=" + caliber
+				+ ", getCaliber()=" + getCaliber() + ", getId()=" + getId() + ", getMachinecde()=" + getMachinecde()
+				+ ", getPlugspec()=" + getPlugspec() + ", getCode()=" + getCode() + ", getUsestatus()=" + getUsestatus()
+				+ ", getVoltage()=" + getVoltage() + ", getCurrent()=" + getCurrent() + ", getPower()=" + getPower()
+				+ ", getDtu()=" + getDtu() + ", getDtuport()=" + getDtuport() + ", getDevicepeople()="
+				+ getDevicepeople() + ", getLocalcoding()=" + getLocalcoding() + ", getElelocksta()=" + getElelocksta()
+				+ ", getValvesta()=" + getValvesta() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 
-	public Integer getMachineId() {
-        return machineId;
-    }
+	public String getCaliber() {
+		return caliber;
+	}
 
-    public void setMachineId(Integer machineId) {
-        this.machineId = machineId;
-    }
+	public void setCaliber(String caliber) {
+		this.caliber = caliber;
+	}
 
-    public String getMachinecde() {
-        return machinecde;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setMachinecde(String machinecde) {
-        this.machinecde = machinecde == null ? null : machinecde.trim();
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getPlugspec() {
-        return plugspec;
-    }
+	public String getMachinecde() {
+		return machinecde;
+	}
 
-    public void setPlugspec(String plugspec) {
-        this.plugspec = plugspec == null ? null : plugspec.trim();
-    }
+	public void setMachinecde(String machinecde) {
+		this.machinecde = machinecde == null ? null : machinecde.trim();
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public String getPlugspec() {
+		return plugspec;
+	}
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
+	public void setPlugspec(String plugspec) {
+		this.plugspec = plugspec == null ? null : plugspec.trim();
+	}
 
-    public Integer getUsestatus() {
-        return usestatus;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public void setUsestatus(Integer usestatus) {
-        this.usestatus = usestatus;
-    }
+	public void setCode(String code) {
+		this.code = code == null ? null : code.trim();
+	}
 
-    public Float getVoltage() {
-        return voltage;
-    }
+	public Integer getUsestatus() {
+		return usestatus;
+	}
 
-    public void setVoltage(Float voltage) {
-        this.voltage = voltage;
-    }
+	public void setUsestatus(Integer usestatus) {
+		this.usestatus = usestatus;
+	}
 
-    public Float getCurrent() {
-        return current;
-    }
+	public Float getVoltage() {
+		return voltage;
+	}
 
-    public void setCurrent(Float current) {
-        this.current = current;
-    }
+	public void setVoltage(Float voltage) {
+		this.voltage = voltage;
+	}
 
-    public Float getPower() {
-        return power;
-    }
+	public Float getCurrent() {
+		return current;
+	}
 
-    public void setPower(Float power) {
-        this.power = power;
-    }
+	public void setCurrent(Float current) {
+		this.current = current;
+	}
 
-    public String getDtu() {
-        return dtu;
-    }
+	public Float getPower() {
+		return power;
+	}
 
-    public void setDtu(String dtu) {
-        this.dtu = dtu == null ? null : dtu.trim();
-    }
+	public void setPower(Float power) {
+		this.power = power;
+	}
 
-    public String getDtuport() {
-        return dtuport;
-    }
+	public String getDtu() {
+		return dtu;
+	}
 
-    public void setDtuport(String dtuport) {
-        this.dtuport = dtuport == null ? null : dtuport.trim();
-    }
+	public void setDtu(String dtu) {
+		this.dtu = dtu == null ? null : dtu.trim();
+	}
 
-    public String getDevicepeople() {
-        return devicepeople;
-    }
+	public String getDtuport() {
+		return dtuport;
+	}
 
-    public void setDevicepeople(String devicepeople) {
-        this.devicepeople = devicepeople == null ? null : devicepeople.trim();
-    }
+	public void setDtuport(String dtuport) {
+		this.dtuport = dtuport == null ? null : dtuport.trim();
+	}
 
-    public String getLocalcoding() {
-        return localcoding;
-    }
+	public String getDevicepeople() {
+		return devicepeople;
+	}
 
-    public void setLocalcoding(String localcoding) {
-        this.localcoding = localcoding == null ? null : localcoding.trim();
-    }
+	public void setDevicepeople(String devicepeople) {
+		this.devicepeople = devicepeople == null ? null : devicepeople.trim();
+	}
 
-    public Integer getElelocksta() {
-        return elelocksta;
-    }
+	public String getLocalcoding() {
+		return localcoding;
+	}
 
-    public void setElelocksta(Integer elelocksta) {
-        this.elelocksta = elelocksta;
-    }
+	public void setLocalcoding(String localcoding) {
+		this.localcoding = localcoding == null ? null : localcoding.trim();
+	}
 
-    public Integer getValvesta() {
-        return valvesta;
-    }
+	public Integer getElelocksta() {
+		return elelocksta;
+	}
 
-    public void setValvesta(Integer valvesta) {
-        this.valvesta = valvesta;
-    }
+	public void setElelocksta(Integer elelocksta) {
+		this.elelocksta = elelocksta;
+	}
+
+	public Integer getValvesta() {
+		return valvesta;
+	}
+
+	public void setValvesta(Integer valvesta) {
+		this.valvesta = valvesta;
+	}
 }

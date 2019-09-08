@@ -2,14 +2,14 @@ package com.dou.dao;
 
 import com.dou.domain.Machine;
 import com.dou.domain.MachineExample;
+import com.dou.domain.WXPumpModel;
+
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
 public interface MachineMapper {
-	
-	
 	
 	long countByExample(MachineExample example);
 
@@ -38,4 +38,10 @@ public interface MachineMapper {
 	void deleteMachine(Machine machine);
 
 	void updateMachine(Machine machine);
+	
+	//水栓信息
+	int inserMachineinfo(Machine machine);
+	
+	
+	
 }

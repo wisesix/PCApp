@@ -24,11 +24,11 @@ public class WXPumpInfo {
 	@Autowired
 	private WXInserPumpSercice wXInserPumpSercice;
 
-	@RequestMapping(value = "/test", method = { RequestMethod.GET })
+	@RequestMapping(value = "/info", method = { RequestMethod.GET })
 	@ResponseBody
-	public void getpump(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
+	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
 
-		WXPumpModel pump = wXInserPumpSercice.inserPumpinfo(request.getParameter("code"));
+		WXPumpModel pump = wXInserPumpSercice.insertPumpinfo(request.getParameter("phone"));
 
 		
 		printWriter.write(JSON.toJSONString(pump));

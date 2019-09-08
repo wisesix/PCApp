@@ -20,9 +20,9 @@ public class WXInserPumpSerciceImpl implements WXInserPumpSercice{
 	}
 
 	@Override
-	public WXPumpModel inserPumpinfo(String code) {
+	public WXPumpModel insertPumpinfo(String phone) {
 		// TODO Auto-generated method stub
-		return WXPumpMapper.inserPumpinfo(code);
+		return WXPumpMapper.insertPumpinfo(phone);
 	}
 
 }

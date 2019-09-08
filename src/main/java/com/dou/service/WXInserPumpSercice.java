@@ -6,10 +6,10 @@ import com.dou.domain.WXPumpModel;
 
 public interface WXInserPumpSercice {
 	
-	
+	//录入水泵
 	int inserPumpbycode(WXPumpModel wXPumpModel);
-	
-	WXPumpModel inserPumpinfo(String code);
+	//查询水泵
+	WXPumpModel insertPumpinfo(String phone);
 	
 	
 }

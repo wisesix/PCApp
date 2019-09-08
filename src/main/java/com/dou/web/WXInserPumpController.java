@@ -25,14 +25,18 @@ import com.dou.service.WXInserPumpSercice;
 
 @Controller
 @RequestMapping("/pump")
-public class WXInserPumpController extends HttpServlet{
+public class WXInserPumpController extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Autowired
 	private WXInserPumpSercice wXInserPumpSercice;
 
 	@RequestMapping(value = "/inserpump", method = { RequestMethod.POST })
 	@ResponseBody
-	public void getpump(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
+	public void getpump(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
 		WXPumpModel pump = new WXPumpModel();
@@ -44,22 +48,7 @@ public class WXInserPumpController extends HttpServlet{
 		pump.setLift(request.getParameter("lift"));
 
 		map.put("res", wXInserPumpSercice.inserPumpbycode(pump));
-		
+
 		printWriter.write(JSON.toJSONString(map));
 	}
-	
-	
-//	public Object getJson(@RequestBody String pumpInfo) {
-//
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		map.put("res", 0);
-//
-//		JSONObject jsonObject = JSONObject.parseObject(pumpInfo);
-//		WXPumpModel pump = (WXPumpModel) JSONObject.toJavaObject(jsonObject, WXPumpModel.class);
-//		System.out.println(pump.getPhone());
-//		map.put("res", wXInserPumpSercice.inserPumpbycode(pump));
-//		System.out.println(pump.getCode() + "-------------");
-//		return JSON.toJSONString(map);
-//	}
-	
 }

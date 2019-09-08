@@ -22,14 +22,74 @@ public class Pump {
     private String frequency;
 
     private String cfrequency;
-    
+    //test
+	private String id;
+	
+	private String phone;
+	
+	private String voltage;
+	
+	private String current;
+	
+	private String power;
+	
+	private String lift;
 
-    @Override
+	@Override
 	public String toString() {
 		return "Pump [pumbId=" + pumbId + ", machinecde=" + machinecde + ", code=" + code + ", localcoding="
 				+ localcoding + ", usestatus=" + usestatus + ", dtu=" + dtu + ", dtuport=" + dtuport + ", villagers="
 				+ villagers + ", controlmode=" + controlmode + ", frequency=" + frequency + ", cfrequency=" + cfrequency
-				+ "]";
+				+ ", id=" + id + ", phone=" + phone + ", voltage=" + voltage + ", current=" + current + ", power="
+				+ power + ", lift=" + lift + "]";
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getVoltage() {
+		return voltage;
+	}
+
+	public void setVoltage(String voltage) {
+		this.voltage = voltage;
+	}
+
+	public String getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(String current) {
+		this.current = current;
+	}
+
+	public String getPower() {
+		return power;
+	}
+
+	public void setPower(String power) {
+		this.power = power;
+	}
+
+	public String getLift() {
+		return lift;
+	}
+
+	public void setLift(String lift) {
+		this.lift = lift;
 	}
 
 	public Integer getPumbId() {

@@ -350,4 +350,16 @@
       valvesta = #{valvesta,jdbcType=INTEGER}
     where machine_id = #{machineId,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  <!-- 水栓信息 -->
+  <insert id="inserMachineinfo"
+		parameterType="com.dou.domain.Machine">
+		insert into tb_machine
+		(code,machinecde,caliber)
+		values
+		( #{code,jdbcType=VARCHAR},#{machinecde,jdbcType=VARCHAR}, #{caliber,jdbcType=VARCHAR})
+	</insert>
+  
 </mapper>

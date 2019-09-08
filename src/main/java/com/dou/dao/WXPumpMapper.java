@@ -6,5 +6,5 @@ public interface WXPumpMapper {
 	
 	int inserPumpinfo(WXPumpModel wXPumpModel);
 	
-	WXPumpModel inserPumpinfo(String code);
+	WXPumpModel insertPumpinfo(String phone);
 }

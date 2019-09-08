@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dou.dao.WXPumpMapper">
 
-	<resultMap id="BaseResultMap" type="com.dou.domain.WXPumpModel">
+ 	<resultMap id="BaseResultMap" type="com.dou.domain.WXPumpModel">
 		<id column="id" jdbcType="INTEGER" property="id" />
 		<result column="code" jdbcType="VARCHAR" property="code" />
 		<result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -10,13 +10,14 @@
 		<result column="current" jdbcType="CHAR" property="current" />
 		<result column="power" jdbcType="VARCHAR" property="power" />
 		<result column="lift" jdbcType="VARCHAR" property="lift" />
-	</resultMap>
+	</resultMap> 
 
-	<select id="inserPumpinfo" parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
-		select * from tb_pump where code =#{code}
+	 <select id="insertPumpinfo" parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
+		select * from tb_pump where phone =#{phone}
 	</select>
 
-<!-- 	<insert id="inserPumpinfo"
+
+	<insert id="inserPumpinfo"
 		parameterType="com.dou.domain.WXPumpModel">
 		insert into tb_pump
 		(phone,code,voltage,current,power,lift)
@@ -25,7 +26,7 @@
 		#{voltage,jdbcType=VARCHAR}, #{current,jdbcType=VARCHAR},
 		#{power,jdbcType=VARCHAR}, #{lift,jdbcType=VARCHAR})
 	</insert>
- -->
+
 
 
 

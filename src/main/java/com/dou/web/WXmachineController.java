@@ -1,5 +1,11 @@
 package com.dou.web;
 
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,28 +14,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSON;
 import com.dou.domain.Machine;
 import com.dou.service.MachineConfigService;
 
 @Controller
 @RequestMapping("/wechatmachine")
-public class WXmachineController {
+public class WXmachineController extends HttpServlet{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	MachineConfigService MachineConfigService;
 	
 	@ResponseBody
-	@RequestMapping(value = "/machineinfo")
-	public String myinfo(Machine model, HttpSession session) {
-		System.out.println("*******************************");
+	@RequestMapping(value = "/machineinfo", method = { RequestMethod.POST })
+	public void machineinfo(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("res", 0);
 		Machine machine = new Machine();
-		machine.setMachineId(11);
-		machine.setMachinecde("55");
-		machine.setCode("22");
-		return machine.toString();
-		
+		machine.setCode(request.getParameter("code"));
+		machine.setMachinecde(request.getParameter("machinecde"));
+		machine.setCaliber(request.getParameter("caliber"));
+
+		map.put("res", MachineConfigService.inserMachineinfo(machine));
+
+		printWriter.write(JSON.toJSONString(map));
 	}
-	
-	
 	
 }
