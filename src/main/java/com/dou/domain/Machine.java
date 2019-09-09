@@ -32,21 +32,35 @@ public class Machine {
 
 	private String caliber;
 
-	
-	
+	private String mcodestatus;
+
+	private String cumruntime;
+
+	private String phone;
+
 	@Override
 	public String toString() {
 		return "Machine [id=" + id + ", machinecde=" + machinecde + ", plugspec=" + plugspec + ", code=" + code
 				+ ", usestatus=" + usestatus + ", voltage=" + voltage + ", current=" + current + ", power=" + power
 				+ ", dtu=" + dtu + ", dtuport=" + dtuport + ", devicepeople=" + devicepeople + ", localcoding="
 				+ localcoding + ", elelocksta=" + elelocksta + ", valvesta=" + valvesta + ", caliber=" + caliber
-				+ ", getCaliber()=" + getCaliber() + ", getId()=" + getId() + ", getMachinecde()=" + getMachinecde()
-				+ ", getPlugspec()=" + getPlugspec() + ", getCode()=" + getCode() + ", getUsestatus()=" + getUsestatus()
-				+ ", getVoltage()=" + getVoltage() + ", getCurrent()=" + getCurrent() + ", getPower()=" + getPower()
-				+ ", getDtu()=" + getDtu() + ", getDtuport()=" + getDtuport() + ", getDevicepeople()="
-				+ getDevicepeople() + ", getLocalcoding()=" + getLocalcoding() + ", getElelocksta()=" + getElelocksta()
-				+ ", getValvesta()=" + getValvesta() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", mcodestatus=" + mcodestatus + ", cumruntime=" + cumruntime + ", phone=" + phone + "]";
+	}
+
+	public String getMcodestatus() {
+		return mcodestatus;
+	}
+
+	public void setMcodestatus(String mcodestatus) {
+		this.mcodestatus = mcodestatus;
+	}
+
+	public String getCumruntime() {
+		return cumruntime;
+	}
+
+	public void setCumruntime(String cumruntime) {
+		this.cumruntime = cumruntime;
 	}
 
 	public String getCaliber() {
@@ -168,4 +182,13 @@ public class Machine {
 	public void setValvesta(Integer valvesta) {
 		this.valvesta = valvesta;
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 }

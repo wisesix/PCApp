@@ -24,5 +24,4 @@ public interface UserConfigDao {
 	//
 	public void updateUser(Userinfo user);
 
-
 }

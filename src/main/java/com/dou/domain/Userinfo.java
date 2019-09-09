@@ -20,11 +20,9 @@ public class Userinfo {
     private String picture;
     
     
-    
-    
-    
 
-    @Override
+
+	@Override
 	public String toString() {
 		return "Userinfo [userId=" + userId + ", name=" + name + ", ldnumber=" + ldnumber + ", password=" + password
 				+ ", phone=" + phone + ", machinecde=" + machinecde + ", code=" + code + ", addr=" + addr + ", picture="

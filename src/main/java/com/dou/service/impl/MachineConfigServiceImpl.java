@@ -40,6 +40,12 @@ public class MachineConfigServiceImpl implements MachineConfigService{
 		// TODO Auto-generated method stub
 		return MachineMapper.inserMachineinfo(machine);
 	}
+
+	@Override
+	public Machine insertMachineinfo(String phone) {
+		// TODO Auto-generated method stub
+		return MachineMapper.insertMachineinfo(phone);
+	}
 	
 	
 	

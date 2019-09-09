@@ -3,6 +3,7 @@ package com.dou.service;
 import java.util.List;
 import java.util.Map;
 
+import com.dou.domain.Machine;
 import com.dou.domain.Userinfo;
 
 public interface UserConfigService {
@@ -24,5 +25,7 @@ public interface UserConfigService {
 	
 	//
 	public void updateUser(Userinfo user);
+	
+	
 
 }

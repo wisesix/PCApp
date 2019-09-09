@@ -37,6 +37,7 @@ public class WXmachineController extends HttpServlet{
 		map.put("res", 0);
 		Machine machine = new Machine();
 		machine.setCode(request.getParameter("code"));
+		machine.setPhone(request.getParameter("phone"));
 		machine.setMachinecde(request.getParameter("machinecde"));
 		machine.setCaliber(request.getParameter("caliber"));
 

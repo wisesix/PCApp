@@ -32,5 +32,14 @@ public interface UserinfoMapper {
 
     int updateByPrimaryKey(Userinfo record);
 
+    
 	Userinfo findUserByName(String name);
+	
+	
+	//获取用户信息Userinfo
+	Userinfo inserUserinfoinfo(String phone);
+	
+	
+	
+	
 }

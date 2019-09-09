@@ -351,15 +351,27 @@
     where machine_id = #{machineId,jdbcType=INTEGER}
   </update>
   
-  
+  <resultMap id="ResultMap" type="com.dou.domain.Machine">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+		<result column="mcodestatus" jdbcType="VARCHAR" property="mcodestatus" />
+		<result column="localcoding" jdbcType="VARCHAR" property="localcoding" />
+		<result column="cumruntime" jdbcType="VARCHAR" property="cumruntime" />
+	</resultMap> 
+
+	 <select id="insertMachineinfo" parameterType="com.dou.domain.Machine" resultMap="ResultMap">
+		select * from tb_machine where phone =#{phone}
+	</select>
   
   <!-- 水栓信息 -->
   <insert id="inserMachineinfo"
 		parameterType="com.dou.domain.Machine">
 		insert into tb_machine
-		(code,machinecde,caliber)
+		(code,phone,machinecde,caliber)
 		values
-		( #{code,jdbcType=VARCHAR},#{machinecde,jdbcType=VARCHAR}, #{caliber,jdbcType=VARCHAR})
+		( #{code,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{machinecde,jdbcType=VARCHAR}, #{caliber,jdbcType=VARCHAR})
 	</insert>
   
 </mapper>

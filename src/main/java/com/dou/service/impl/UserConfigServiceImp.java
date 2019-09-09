@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dou.dao.UserConfigDao;
+import com.dou.dao.UserinfoMapper;
 import com.dou.domain.Userinfo;
 import com.dou.service.UserConfigService;
 
@@ -34,5 +35,7 @@ public class UserConfigServiceImp implements UserConfigService {
 	public void updateUser(Userinfo user) {
 		UserConfigdao.updateUser(user);
 	}
+
+
 
 }

@@ -19,5 +19,7 @@ public interface MachineConfigService {
 	
 	//录入水栓
 	int inserMachineinfo(Machine machine);
+	//查询水栓
+	Machine insertMachineinfo(String phone);
 	
 }

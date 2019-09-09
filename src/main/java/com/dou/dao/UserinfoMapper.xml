@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="ldnumber" jdbcType="VARCHAR" property="ldnumber" />
     <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="addr" jdbcType="VARCHAR" property="addr" />
@@ -274,7 +274,32 @@
   </update>
   
   
+  	<resultMap id="ResultMap"
+		type="com.dou.domain.Userinfo">
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="addr" jdbcType="VARCHAR" property="addr" />
+		<result column="picture" jdbcType="VARCHAR" property="picture" />
+		<result column="idnumber" jdbcType="VARCHAR" property="idnumber" />
+	</resultMap>
+
+	<select id="inserUserinfoinfo" parameterType="com.dou.domain.Userinfo" resultMap="ResultMap">
+		select * from
+		tb_userinfo where phone =#{phone}
+	</select>
+  
   <select id="findUserByName" parameterType="java.lang.String" resultType="com.dou.domain.Userinfo">
   select * from tb_userinfo where name =#{name}
   </select>
+  
+
+  
+  
+  
+  
+  
+  
+  
 </mapper>
