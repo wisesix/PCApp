@@ -1,19 +1,15 @@
 package com.dou.web;
 
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dou.domain.Machine;
-import com.dou.domain.Userinfo;
 import com.dou.service.MachineConfigService;
 
 
@@ -33,7 +29,16 @@ public class MachineConfigController {
 	}
 
 
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

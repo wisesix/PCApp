@@ -44,4 +44,11 @@ public interface MachineMapper {
 	//获取水栓信息
 	Machine insertMachineinfo(String phone);
 	
+	
+	//电磁锁状态
+	Machine insertElelockstainfo (String machinecde);
+	//手动阀状态
+	Machine insertValvestainfo (String machinecde);
+	
+	
 }

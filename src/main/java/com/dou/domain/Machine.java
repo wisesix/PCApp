@@ -25,10 +25,10 @@ public class Machine {
 	private String devicepeople;
 
 	private String localcoding;
-
-	private Integer elelocksta;
-
-	private Integer valvesta;
+	//电磁锁状态
+	private String elelocksta;
+	//手动阀状态
+	private String valvesta;
 
 	private String caliber;
 
@@ -37,6 +37,11 @@ public class Machine {
 	private String cumruntime;
 
 	private String phone;
+	
+	
+	
+	
+	
 
 	@Override
 	public String toString() {
@@ -167,19 +172,19 @@ public class Machine {
 		this.localcoding = localcoding == null ? null : localcoding.trim();
 	}
 
-	public Integer getElelocksta() {
+	public String getElelocksta() {
 		return elelocksta;
 	}
 
-	public void setElelocksta(Integer elelocksta) {
+	public void setElelocksta(String elelocksta) {
 		this.elelocksta = elelocksta;
 	}
 
-	public Integer getValvesta() {
+	public String getValvesta() {
 		return valvesta;
 	}
 
-	public void setValvesta(Integer valvesta) {
+	public void setValvesta(String valvesta) {
 		this.valvesta = valvesta;
 	}
 

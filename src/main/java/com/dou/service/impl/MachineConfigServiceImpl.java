@@ -11,12 +11,11 @@ import com.dou.domain.Machine;
 import com.dou.service.MachineConfigService;
 
 @Service
-public class MachineConfigServiceImpl implements MachineConfigService{
-	
+public class MachineConfigServiceImpl implements MachineConfigService {
+
 	@Autowired
 	private MachineMapper MachineMapper;
-	
-	
+
 	@Override
 	public List<Map<String, Machine>> getMachineList(Machine machine) {
 		return MachineMapper.getMachineList(machine);
@@ -26,7 +25,7 @@ public class MachineConfigServiceImpl implements MachineConfigService{
 	public void deleteMachine(Machine machine) {
 		// TODO Auto-generated method stub
 		MachineMapper.deleteMachine(machine);
-		
+
 	}
 
 	@Override
@@ -46,7 +45,16 @@ public class MachineConfigServiceImpl implements MachineConfigService{
 		// TODO Auto-generated method stub
 		return MachineMapper.insertMachineinfo(phone);
 	}
-	
-	
-	
+	//电磁阀状态
+	@Override
+	public Machine insertElelockstainfo(String machinecde) {
+		return MachineMapper.insertElelockstainfo(machinecde);
+	}
+	//手动阀状态
+	@Override
+	public Machine insertValvestainfo(String machinecde) {
+		// TODO Auto-generated method stub
+		return MachineMapper.insertValvestainfo(machinecde);
+	}
+
 }

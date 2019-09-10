@@ -359,11 +359,22 @@
 		<result column="mcodestatus" jdbcType="VARCHAR" property="mcodestatus" />
 		<result column="localcoding" jdbcType="VARCHAR" property="localcoding" />
 		<result column="cumruntime" jdbcType="VARCHAR" property="cumruntime" />
+		<result column="elelocksta" jdbcType="VARCHAR" property="elelocksta" />
+		<result column="valvesta" jdbcType="VARCHAR" property="valvesta" />
 	</resultMap> 
 
 	 <select id="insertMachineinfo" parameterType="com.dou.domain.Machine" resultMap="ResultMap">
 		select * from tb_machine where phone =#{phone}
 	</select>
+  
+  	<select id="insertElelockstainfo" parameterType="com.dou.domain.Machine" resultMap="ResultMap">
+		select * from tb_machine where machinecde =#{machinecde}
+	</select>
+  
+  	<select id="insertValvestainfo" parameterType="com.dou.domain.Machine" resultMap="ResultMap">
+		select * from tb_machine where machinecde =#{machinecde}
+	</select>
+  
   
   <!-- 水栓信息 -->
   <insert id="inserMachineinfo"
