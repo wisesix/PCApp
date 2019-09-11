@@ -31,4 +31,12 @@ public interface PumpMapper {
 	Pump fingPumpbycode(String code);
 	//增加水泵信息方法
 	int inserPumpbycode(String code);
+	
+	
+	//折现统计图
+	Pump selectZhexian(Pump pump);
+	
+	
+	
+	
 }

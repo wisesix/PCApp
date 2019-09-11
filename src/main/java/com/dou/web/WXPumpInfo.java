@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.dou.domain.Userinfo;
 import com.dou.domain.WXPumpModel;
 import com.dou.service.WXInserPumpSercice;
+import com.dou.service.WXUserinfoService;
 
 @Controller
 @RequestMapping("/pumpinfo")
@@ -33,6 +35,22 @@ public class WXPumpInfo {
 		
 		printWriter.write(JSON.toJSONString(pump));
 	}
+	
+	
+	
+	@RequestMapping(value = "/zhexian", 
+			method = { RequestMethod.GET }, 
+			produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public void zhexian(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+
+		WXPumpModel pump = wXInserPumpSercice.selectZhexian(request.getParameter("code"));
+		printWriter.write(JSON.toJSONString(pump));
+	}
+	
+	
+	
+	
 	
 	
 	

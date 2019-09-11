@@ -240,4 +240,33 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+	<!-- 开始时间 -->
+	<insert id="insertStart"
+		parameterType="com.dou.domain.Operatorlogs">
+		insert into 
+			tb_operatorlogs (start)
+		values
+			(#{start,jdbcType=DATE})
+	</insert>
+
+
+	<!-- 结束时间 -->
+	<insert id="insertEnd"
+		parameterType="com.dou.domain.Operatorlogs">
+		insert into 
+			tb_operatorlogs (end)
+		values
+			(#{end,jdbcType=DATE})
+	</insert>
+
+
+
+
+
+
+
+
+
 </mapper>

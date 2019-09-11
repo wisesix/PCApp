@@ -1,7 +1,11 @@
 package com.dou.domain;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author Dell
+ *
+ */
 public class Operatorlogs {
     private Integer id;
 
@@ -10,14 +14,45 @@ public class Operatorlogs {
     private String machinecde;
 
     private Date time;
-
+    
+    //开始时间
     private Date start;
-
+    //结束时间
     private Date end;
 
     private Integer status;
+    //灌溉时间
+    private Integer realtime;
+    //用水量
+    private String watersum;
+    
+    
+    
+    
+    @Override
+	public String toString() {
+		return "Operatorlogs [id=" + id + ", uesrid=" + uesrid + ", machinecde=" + machinecde + ", time=" + time
+				+ ", start=" + start + ", end=" + end + ", status=" + status + ", realtime=" + realtime + ", watersum="
+				+ watersum + "]";
+	}
 
-    public Integer getId() {
+	public Integer getRealtime() {
+		return realtime;
+	}
+
+	public void setRealtime(Integer realtime) {
+		this.realtime = realtime;
+	}
+
+	public String getWatersum() {
+		return watersum;
+	}
+
+	public void setWatersum(String watersum) {
+		this.watersum = watersum;
+	}
+
+	public Integer getId() {
         return id;
     }
 

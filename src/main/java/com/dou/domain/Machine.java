@@ -11,11 +11,11 @@ public class Machine {
 	private String code;
 
 	private Integer usestatus;
-
+	// 电压
 	private Float voltage;
-
+	// 电流
 	private Float current;
-
+	// 功率
 	private Float power;
 
 	private String dtu;
@@ -25,9 +25,9 @@ public class Machine {
 	private String devicepeople;
 
 	private String localcoding;
-	//电磁锁状态
+	// 电磁锁状态
 	private String elelocksta;
-	//手动阀状态
+	// 手动阀状态
 	private String valvesta;
 
 	private String caliber;
@@ -37,19 +37,36 @@ public class Machine {
 	private String cumruntime;
 
 	private String phone;
-	
-	
-	
-	
-	
+	// 浇灌时间
+	private Integer realtime;
+	// 压力
+	private String pressure;
 
+	
 	@Override
 	public String toString() {
 		return "Machine [id=" + id + ", machinecde=" + machinecde + ", plugspec=" + plugspec + ", code=" + code
 				+ ", usestatus=" + usestatus + ", voltage=" + voltage + ", current=" + current + ", power=" + power
 				+ ", dtu=" + dtu + ", dtuport=" + dtuport + ", devicepeople=" + devicepeople + ", localcoding="
 				+ localcoding + ", elelocksta=" + elelocksta + ", valvesta=" + valvesta + ", caliber=" + caliber
-				+ ", mcodestatus=" + mcodestatus + ", cumruntime=" + cumruntime + ", phone=" + phone + "]";
+				+ ", mcodestatus=" + mcodestatus + ", cumruntime=" + cumruntime + ", phone=" + phone + ", realtime="
+				+ realtime + ", pressure=" + pressure + "]";
+	}
+
+	public Integer getRealtime() {
+		return realtime;
+	}
+
+	public void setRealtime(Integer realtime) {
+		this.realtime = realtime;
+	}
+
+	public String getPressure() {
+		return pressure;
+	}
+
+	public void setPressure(String pressure) {
+		this.pressure = pressure;
 	}
 
 	public String getMcodestatus() {

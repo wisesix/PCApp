@@ -8,4 +8,10 @@ public interface WXPumpMapper {
 	//获取水泵信息
 	WXPumpModel insertPumpinfo(String phone);
 	
+	//折线统计图
+	WXPumpModel selectZhexian(String code);
+	
+	
+	
+	
 }

@@ -1,39 +1,46 @@
 package com.dou.domain;
 
 public class Pump {
-    private Integer pumbId;
 
-    private String machinecde;
+	private String pumbId;
 
-    private String code;
+	private String machinecde;
 
-    private String localcoding;
+	private String code;
 
-    private Integer usestatus;
+	private String localcoding;
 
-    private String dtu;
+	private String usestatus;
 
-    private String dtuport;
+	private String dtu;
 
-    private String villagers;
+	private String dtuport;
 
-    private Integer controlmode;
+	private String villagers;
+	// 控制方式(水泵)
+	private String controlmode;
 
-    private String frequency;
+	private String frequency;
 
-    private String cfrequency;
-    //test
+	private String cfrequency;
+	// test
 	private String id;
-	
+
 	private String phone;
-	
+
+	// 电压
 	private String voltage;
-	
+	// 电流
 	private String current;
-	
+	// 功率
 	private String power;
-	
+
 	private String lift;
+
+	// 瞬时流量
+	private String sflow;
+	// 出水压力
+	private String pressure;
 
 	@Override
 	public String toString() {
@@ -41,7 +48,23 @@ public class Pump {
 				+ localcoding + ", usestatus=" + usestatus + ", dtu=" + dtu + ", dtuport=" + dtuport + ", villagers="
 				+ villagers + ", controlmode=" + controlmode + ", frequency=" + frequency + ", cfrequency=" + cfrequency
 				+ ", id=" + id + ", phone=" + phone + ", voltage=" + voltage + ", current=" + current + ", power="
-				+ power + ", lift=" + lift + "]";
+				+ power + ", lift=" + lift + ", sflow=" + sflow + ", pressure=" + pressure + "]";
+	}
+
+	public String getSflow() {
+		return sflow;
+	}
+
+	public void setSflow(String sflow) {
+		this.sflow = sflow;
+	}
+
+	public String getPressure() {
+		return pressure;
+	}
+
+	public void setPressure(String pressure) {
+		this.pressure = pressure;
 	}
 
 	public String getId() {
@@ -92,91 +115,91 @@ public class Pump {
 		this.lift = lift;
 	}
 
-	public Integer getPumbId() {
-        return pumbId;
-    }
+	public String getPumbId() {
+		return pumbId;
+	}
 
-    public void setPumbId(Integer pumbId) {
-        this.pumbId = pumbId;
-    }
+	public void setPumbId(String pumbId) {
+		this.pumbId = pumbId;
+	}
 
-    public String getMachinecde() {
-        return machinecde;
-    }
+	public String getMachinecde() {
+		return machinecde;
+	}
 
-    public void setMachinecde(String machinecde) {
-        this.machinecde = machinecde == null ? null : machinecde.trim();
-    }
+	public void setMachinecde(String machinecde) {
+		this.machinecde = machinecde == null ? null : machinecde.trim();
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
+	public void setCode(String code) {
+		this.code = code == null ? null : code.trim();
+	}
 
-    public String getLocalcoding() {
-        return localcoding;
-    }
+	public String getLocalcoding() {
+		return localcoding;
+	}
 
-    public void setLocalcoding(String localcoding) {
-        this.localcoding = localcoding == null ? null : localcoding.trim();
-    }
+	public void setLocalcoding(String localcoding) {
+		this.localcoding = localcoding == null ? null : localcoding.trim();
+	}
 
-    public Integer getUsestatus() {
-        return usestatus;
-    }
+	public String getUsestatus() {
+		return usestatus;
+	}
 
-    public void setUsestatus(Integer usestatus) {
-        this.usestatus = usestatus;
-    }
+	public void setUsestatus(String usestatus) {
+		this.usestatus = usestatus;
+	}
 
-    public String getDtu() {
-        return dtu;
-    }
+	public String getDtu() {
+		return dtu;
+	}
 
-    public void setDtu(String dtu) {
-        this.dtu = dtu == null ? null : dtu.trim();
-    }
+	public void setDtu(String dtu) {
+		this.dtu = dtu == null ? null : dtu.trim();
+	}
 
-    public String getDtuport() {
-        return dtuport;
-    }
+	public String getDtuport() {
+		return dtuport;
+	}
 
-    public void setDtuport(String dtuport) {
-        this.dtuport = dtuport == null ? null : dtuport.trim();
-    }
+	public void setDtuport(String dtuport) {
+		this.dtuport = dtuport == null ? null : dtuport.trim();
+	}
 
-    public String getVillagers() {
-        return villagers;
-    }
+	public String getVillagers() {
+		return villagers;
+	}
 
-    public void setVillagers(String villagers) {
-        this.villagers = villagers == null ? null : villagers.trim();
-    }
+	public void setVillagers(String villagers) {
+		this.villagers = villagers == null ? null : villagers.trim();
+	}
 
-    public Integer getControlmode() {
-        return controlmode;
-    }
+	public String getControlmode() {
+		return controlmode;
+	}
 
-    public void setControlmode(Integer controlmode) {
-        this.controlmode = controlmode;
-    }
+	public void setControlmode(String controlmode) {
+		this.controlmode = controlmode;
+	}
 
-    public String getFrequency() {
-        return frequency;
-    }
+	public String getFrequency() {
+		return frequency;
+	}
 
-    public void setFrequency(String frequency) {
-        this.frequency = frequency == null ? null : frequency.trim();
-    }
+	public void setFrequency(String frequency) {
+		this.frequency = frequency == null ? null : frequency.trim();
+	}
 
-    public String getCfrequency() {
-        return cfrequency;
-    }
+	public String getCfrequency() {
+		return cfrequency;
+	}
 
-    public void setCfrequency(String cfrequency) {
-        this.cfrequency = cfrequency == null ? null : cfrequency.trim();
-    }
+	public void setCfrequency(String cfrequency) {
+		this.cfrequency = cfrequency == null ? null : cfrequency.trim();
+	}
 }
