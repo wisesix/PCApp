@@ -5,7 +5,7 @@ public class WXPumpModel {
 	private String id;
 
 	private String phone;
-
+	//水泵编码
 	private String code;
 	//电压
 	private String voltage;
@@ -20,12 +20,23 @@ public class WXPumpModel {
 	private String sflow;
 	// 出水压力
 	private String pressure;
+	//控制方式
+	private String controlmode;
 
 
 	@Override
 	public String toString() {
 		return "WXPumpModel [id=" + id + ", phone=" + phone + ", code=" + code + ", voltage=" + voltage + ", current="
-				+ current + ", power=" + power + ", lift=" + lift + ", sflow=" + sflow + ", pressure=" + pressure + "]";
+				+ current + ", power=" + power + ", lift=" + lift + ", sflow=" + sflow + ", pressure=" + pressure
+				+ ", controlmode=" + controlmode + "]";
+	}
+
+	public String getControlmode() {
+		return controlmode;
+	}
+
+	public void setControlmode(String controlmode) {
+		this.controlmode = controlmode;
 	}
 
 	public String getSflow() {

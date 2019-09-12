@@ -28,6 +28,13 @@ public interface OperatorlogsMapper {
 
     int updateByPrimaryKey(Operatorlogs record);
     
+    
+    
+    
+    List<Operatorlogs> getOperatorList(Operatorlogs operatorlogs);
+    
+    int updateOperator(Operatorlogs operatorlogs);
+    
     //开始时间
     int insertStart(Operatorlogs operatorlogs);
     //结束时间

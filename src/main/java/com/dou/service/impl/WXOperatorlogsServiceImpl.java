@@ -1,5 +1,7 @@
 package com.dou.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,16 @@ public class WXOperatorlogsServiceImpl implements WXOperatorlogsService{
 	public int insertEnd(Operatorlogs operatorlogs) {
 		// TODO Auto-generated method stub
 		return OperatorlogsMapper.insertEnd(operatorlogs);
+	}
+	@Override
+	public List<Operatorlogs> getOperatorList(Operatorlogs operatorlogs) {
+		// TODO Auto-generated method stub
+		return OperatorlogsMapper.getOperatorList(operatorlogs);
+	}
+	@Override
+	public int updateOperator(Operatorlogs operatorlogs) {
+		// TODO Auto-generated method stub
+		return OperatorlogsMapper.updateOperator(operatorlogs);
 	}
 	
 	

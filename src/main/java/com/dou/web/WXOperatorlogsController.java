@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.dou.domain.Operatorlogs;
 import com.dou.service.WXOperatorlogsService;
+import com.dou.utils.DateUtil;
 
 @Controller
 @RequestMapping("/operatorlogs")
@@ -28,37 +29,39 @@ public class WXOperatorlogsController {
 
 	@RequestMapping(value = "/start")
 	@ResponseBody
-	public void start(HttpServletRequest request, PrintWriter printWriter, HttpSession session) throws ParseException {
+	public void start(Operatorlogs operatorlogs, HttpServletRequest request, PrintWriter printWriter, HttpSession session) throws ParseException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
-		Operatorlogs operatorlogs = new Operatorlogs();
 
-		String startTime = request.getParameter("start");
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
-		Date date = df.parse(startTime);
+		/*
+		 * String startTime = request.getParameter("start"); SimpleDateFormat df = new
+		 * SimpleDateFormat("yyyy-MM-dd  hh:mm:ss"); Date date = df.parse(startTime);
+		 */
 
-		operatorlogs.setStart(date);
-
+		operatorlogs.setStart(new Date());
+		operatorlogs.setStatus(0);
+		
 		map.put("res", wXOperatorlogsService.insertStart(operatorlogs));
 
 		printWriter.write(JSON.toJSONString(map));
 	}
 
+	
+	
+	
+	
 	@RequestMapping(value = "/end")
 	@ResponseBody
-	public void end(HttpServletRequest request, PrintWriter printWriter, HttpSession session) throws ParseException {
+	public void end(Operatorlogs operatorlogs,HttpServletRequest request, PrintWriter printWriter, HttpSession session) throws ParseException {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
-		Operatorlogs operatorlogs = new Operatorlogs();
-
-		String endTime = request.getParameter("end");
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
-		Date date = df.parse(endTime);
-
-		operatorlogs.setEnd(date);
-
-		map.put("res", wXOperatorlogsService.insertEnd(operatorlogs));
-
+		operatorlogs.setStatus(0);
+		Operatorlogs operatorlogs2 = wXOperatorlogsService.getOperatorList(operatorlogs).get(0);
+        Integer realtime = DateUtil.differMinute(new Date(), operatorlogs2.getStart());
+		operatorlogs2.setEnd(new Date());
+		operatorlogs2.setStatus(1);
+		operatorlogs2.setRealtime(realtime);
+		map.put("res", wXOperatorlogsService.updateOperator(operatorlogs2));
 		printWriter.write(JSON.toJSONString(map));
 	}
 

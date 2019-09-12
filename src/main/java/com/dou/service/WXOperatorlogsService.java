@@ -1,5 +1,7 @@
 package com.dou.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.dou.domain.Operatorlogs;
@@ -10,5 +12,11 @@ public interface WXOperatorlogsService {
 	int insertStart(Operatorlogs operatorlogs);
 	//结束时间
 	int insertEnd(Operatorlogs operatorlogs);
+	
+	
+	
+	List<Operatorlogs> getOperatorList(Operatorlogs operatorlogs);
+	
+	int updateOperator(Operatorlogs operatorlogs);
 	
 }

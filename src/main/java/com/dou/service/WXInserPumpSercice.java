@@ -16,4 +16,8 @@ public interface WXInserPumpSercice {
 	//折线统计图
 	WXPumpModel selectZhexian(String code);
 	
+	//控制方式设置
+	int getControlmode(WXPumpModel wXPumpModel);
+	
+	
 }

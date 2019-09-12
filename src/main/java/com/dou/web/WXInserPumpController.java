@@ -51,4 +51,22 @@ public class WXInserPumpController extends HttpServlet {
 
 		printWriter.write(JSON.toJSONString(map));
 	}
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/controlmode", method = { RequestMethod.POST })
+	@ResponseBody
+	public void controlmode(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("res", 0);
+		WXPumpModel pump = new WXPumpModel();
+		pump.setCode(request.getParameter("code"));
+		pump.setControlmode(request.getParameter("controlmode"));
+
+		map.put("res", wXInserPumpSercice.getControlmode(pump));
+
+		printWriter.write(JSON.toJSONString(map));
+	}
 }

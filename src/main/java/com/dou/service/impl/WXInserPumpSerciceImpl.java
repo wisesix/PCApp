@@ -33,5 +33,11 @@ public class WXInserPumpSerciceImpl implements WXInserPumpSercice{
 		return WXPumpMapper.selectZhexian(code);
 	}
 
+	@Override
+	public int getControlmode(WXPumpModel wXPumpModel) {
+		// TODO Auto-generated method stub
+		return WXPumpMapper.getControlmode(wXPumpModel);
+	}
+
 
 }

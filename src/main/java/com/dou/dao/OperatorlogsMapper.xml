@@ -242,13 +242,23 @@
   </update>
 
 
+
+
+	<select id="getOperatorList" resultType="com.dou.domain.Operatorlogs" parameterType="com.dou.domain.Operatorlogs">
+ 		select * from tb_operatorlogs where 1=1
+ 		<if test="machinecde != null and status != ''">
+ 			and machinecde = #{machinecde,jdbcType=DATE}
+ 			and status = #{status,jdbcType=INTEGER}
+ 		</if>
+ 	</select>
+ 	
 	<!-- 开始时间 -->
 	<insert id="insertStart"
 		parameterType="com.dou.domain.Operatorlogs">
 		insert into 
-			tb_operatorlogs (start)
+			tb_operatorlogs (start,status,machinecde,userid)
 		values
-			(#{start,jdbcType=DATE})
+			(#{start,jdbcType=DATE},#{status,jdbcType=INTEGER},#{machinecde,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR})
 	</insert>
 
 
@@ -262,7 +272,11 @@
 	</insert>
 
 
-
+	<update id="updateOperator" parameterType="com.dou.domain.Operatorlogs">
+ 		update tb_operatorlogs set status=#{status,jdbcType=INTEGER},end = #{end,jdbcType=DATE},realtime=#{realtime,jdbcType=INTEGER}
+ 		where id=#{id}
+ 	</update>
+	
 
 
 

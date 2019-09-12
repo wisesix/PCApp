@@ -39,7 +39,19 @@
 		#{power,jdbcType=VARCHAR}, #{lift,jdbcType=VARCHAR})
 	</insert>
 
-
+	
+	<insert id="getControlmode"
+		parameterType="com.dou.domain.WXPumpModel">
+		insert into tb_pump
+		(code,controlmode)
+		values
+		(#{code,jdbcType=VARCHAR}, #{controlmode,jdbcType=VARCHAR})
+	</insert>
+	
+	
+	
+	
+	
 
 
 </mapper>
