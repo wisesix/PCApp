@@ -15,13 +15,14 @@
 		<result column="pressure" jdbcType="VARCHAR"
 			property="pressure" />
 	</resultMap>
+	
 
 	<select id="insertPumpinfo"
 		parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
 		select * from
 		tb_pump where phone =#{phone}
 	</select>
-
+ 
 	<select id="selectZhexian"
 		parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
 		select * from tb_pump where code =#{code}

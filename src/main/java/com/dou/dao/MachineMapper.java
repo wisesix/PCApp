@@ -42,7 +42,7 @@ public interface MachineMapper {
 	//水栓信息
 	int inserMachineinfo(Machine machine);
 	//获取水栓信息
-	Machine insertMachineinfo(String phone);
+	List<Machine> insertMachineinfo(String phone);
 	
 	
 	//电磁锁状态

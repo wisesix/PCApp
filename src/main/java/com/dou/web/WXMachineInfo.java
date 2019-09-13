@@ -2,6 +2,7 @@ package com.dou.web;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,7 @@ public class WXMachineInfo {
 	@ResponseBody
 	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
 
-		Machine machine = machineConfigService.insertMachineinfo(request.getParameter("phone"));
+		List<Machine> machine = machineConfigService.insertMachineinfo(request.getParameter("phone"));
 
 		
 		printWriter.write(JSON.toJSONString(machine));

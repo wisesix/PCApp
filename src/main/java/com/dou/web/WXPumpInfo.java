@@ -2,6 +2,7 @@ package com.dou.web;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.dou.domain.Userinfo;
 import com.dou.domain.WXPumpModel;
 import com.dou.service.WXInserPumpSercice;
-import com.dou.service.WXUserinfoService;
+import com.dou.utils.ResponseData;
+import com.dou.utils.ResponseRowsData;
 
 @Controller
 @RequestMapping("/pumpinfo")
@@ -30,7 +31,7 @@ public class WXPumpInfo {
 	@ResponseBody
 	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
 
-		WXPumpModel pump = wXInserPumpSercice.insertPumpinfo(request.getParameter("phone"));
+		List<WXPumpModel> pump = wXInserPumpSercice.insertPumpinfo(request.getParameter("phone"));
 
 		
 		printWriter.write(JSON.toJSONString(pump));
@@ -39,13 +40,18 @@ public class WXPumpInfo {
 	
 	
 	@RequestMapping(value = "/zhexian", 
-			method = { RequestMethod.GET }, 
+			method = { RequestMethod.POST }, 
 			produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public void zhexian(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
-
-		WXPumpModel pump = wXInserPumpSercice.selectZhexian(request.getParameter("code"));
-		printWriter.write(JSON.toJSONString(pump));
+	public ResponseData zhexian(HttpServletRequest request) {
+		
+		ResponseData data = new ResponseData();
+		List<WXPumpModel> pump = wXInserPumpSercice.selectZhexian(request.getParameter("code"));
+		 ResponseRowsData rows = new ResponseRowsData();
+	        rows.setResult(pump);
+	        rows.setTotal((long) pump.size());
+	        data.setData(rows);
+		return data;
 	}
 	
 	

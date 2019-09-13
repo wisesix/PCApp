@@ -258,22 +258,22 @@
 		insert into 
 			tb_operatorlogs (start,status,machinecde,userid)
 		values
-			(#{start,jdbcType=DATE},#{status,jdbcType=INTEGER},#{machinecde,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR})
+			(#{start},#{status,jdbcType=INTEGER},#{machinecde,jdbcType=VARCHAR},#{userid,jdbcType=VARCHAR})
 	</insert>
 
 
-	<!-- 结束时间 -->
+<!-- 	 
 	<insert id="insertEnd"
 		parameterType="com.dou.domain.Operatorlogs">
 		insert into 
 			tb_operatorlogs (end)
 		values
-			(#{end,jdbcType=DATE})
+			(#{end})
 	</insert>
-
+ -->
 
 	<update id="updateOperator" parameterType="com.dou.domain.Operatorlogs">
- 		update tb_operatorlogs set status=#{status,jdbcType=INTEGER},end = #{end,jdbcType=DATE},realtime=#{realtime,jdbcType=INTEGER}
+ 		update tb_operatorlogs set status=#{status,jdbcType=INTEGER},end = #{end},realtime=#{realtime,jdbcType=INTEGER}
  		where id=#{id}
  	</update>
 	

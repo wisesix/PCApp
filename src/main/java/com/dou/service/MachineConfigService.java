@@ -18,7 +18,7 @@ public interface MachineConfigService {
 	int inserMachineinfo(Machine machine);
 
 	// 查询水栓
-	Machine insertMachineinfo(String phone);
+	List<Machine> insertMachineinfo(String phone);
 
 	// 电磁锁状态
 	Machine insertElelockstainfo(String machinecde);

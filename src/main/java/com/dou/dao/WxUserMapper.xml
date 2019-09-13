@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.WxUserMapper">
+
+	<resultMap id="ResultMap"
+		type="com.dou.domain.WxUserModel">
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="codestatus" jdbcType="VARCHAR" property="codestatus" />
+		<result column="controlmode" jdbcType="VARCHAR" property="controlmode" />
+		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+		<result column="usestatus" jdbcType="VARCHAR" property="usestatus" />
+		<result column="cumtime" jdbcType="DATE" property="cumtime" />
+		<result column="cumamount" jdbcType="VARCHAR" property="cumamount" />
+		<result column="cumwater" jdbcType="VARCHAR" property="cumwater" />
+		<result column="staus" jdbcType="VARCHAR" property="staus" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+	</resultMap>
+
+<!-- 	<select id="selectWxUserModel" resultType="com.dou.domain.WxUserModel" parameterType="java.Util.String">
+		select
+			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatus,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
+		from 
+			tb_pump tp
+		left join 
+			tb_machine tm on tp.phone = tm.phone
+		left join
+			tb_cumulative tc on tp.phone = tc.phone
+		left join 
+			tb_paylogs pay on tc.phone = pay.phone
+	</select>
+ -->
+
+</mapper>

@@ -1,5 +1,7 @@
 package com.dou.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +24,13 @@ public class WXInserPumpSerciceImpl implements WXInserPumpSercice{
 	}
 
 	@Override
-	public WXPumpModel insertPumpinfo(String phone) {
+	public List<WXPumpModel> insertPumpinfo(String phone) {
 		// TODO Auto-generated method stub
 		return WXPumpMapper.insertPumpinfo(phone);
 	}
 
 	@Override
-	public WXPumpModel selectZhexian(String code) {
+	public List<WXPumpModel> selectZhexian(String code) {
 		// TODO Auto-generated method stub
 		return WXPumpMapper.selectZhexian(code);
 	}

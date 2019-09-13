@@ -22,7 +22,17 @@ public class WXPumpModel {
 	private String pressure;
 	//控制方式
 	private String controlmode;
+	
+	private String time;
 
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
 
 	@Override
 	public String toString() {
