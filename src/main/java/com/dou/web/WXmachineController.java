@@ -24,7 +24,7 @@ import com.dou.service.MachineConfigService;
 public class WXmachineController extends HttpServlet{
 	
 	/**
-	 * 
+	 * 	录入水栓信息
 	 */
 	private static final long serialVersionUID = 1L;
 	
@@ -40,6 +40,10 @@ public class WXmachineController extends HttpServlet{
 		machine.setCode(request.getParameter("code"));
 		machine.setMachinecde(request.getParameter("machinecde"));
 		machine.setCaliber(request.getParameter("caliber"));
+		
+		machine.setUsestatus("1");
+		machine.setLocalcoding("西安");
+		machine.setCumruntime("1");
 
 		map.put("res", MachineConfigService.inserMachineinfo(machine));
 

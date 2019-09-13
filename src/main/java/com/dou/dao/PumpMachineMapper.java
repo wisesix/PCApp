@@ -4,9 +4,7 @@ import com.dou.domain.PumpMachine;
 
 public interface PumpMachineMapper {
 	
+	PumpMachine pumpmachineinfo(PumpMachine pumpmachine);
 	
-	
-	PumpMachine pumpmachineinfo(PumpMachine pumpMachine);
-	
-	
+
 }

@@ -1,37 +1,23 @@
 package com.dou.domain;
 
 public class PumpMachine {
-	
-	//水栓运行状态
-	private String usestatus;
-	//水泵运行状态
-	
-	private String codestatus;
+	private Integer usestatus;
+	private Integer codestatus;
 
-	
-	
-	
-	
-	
-	public String getUsestatus() {
+	public Integer getUsestatus() {
 		return usestatus;
 	}
 
-	public void setUsestatus(String usestatus) {
+	public void setUsestatus(Integer usestatus) {
 		this.usestatus = usestatus;
 	}
 
-	public String getCodestatus() {
+	public Integer getCodestatus() {
 		return codestatus;
 	}
 
-	public void setCodestatus(String codestatus) {
+	public void setCodestatus(Integer codestatus) {
 		this.codestatus = codestatus;
 	}
-	
-		
-	
-	
-	
-	
+
 }

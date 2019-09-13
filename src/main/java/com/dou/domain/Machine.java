@@ -10,7 +10,7 @@ public class Machine {
 
 	private String code;
 
-	private Integer usestatus;
+	private String usestatus;
 	// 电压
 	private Float voltage;
 	// 电流
@@ -125,12 +125,12 @@ public class Machine {
 		this.code = code == null ? null : code.trim();
 	}
 
-	public Integer getUsestatus() {
+	public String getUsestatus() {
 		return usestatus;
 	}
 
-	public void setUsestatus(Integer usestatus) {
-		this.usestatus = usestatus;
+	public void setUsestatus(String string) {
+		this.usestatus = string;
 	}
 
 	public Float getVoltage() {

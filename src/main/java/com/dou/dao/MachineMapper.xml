@@ -380,9 +380,11 @@
   <insert id="inserMachineinfo"
 		parameterType="com.dou.domain.Machine">
 		insert into tb_machine
-		(code,phone,machinecde,caliber)
+		(code,phone,machinecde,caliber,usestatus,localcoding,cumruntime)
 		values
-		( #{code,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{machinecde,jdbcType=VARCHAR}, #{caliber,jdbcType=VARCHAR})
+		( #{code,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
+		#{machinecde,jdbcType=VARCHAR}, #{caliber,jdbcType=VARCHAR}, 
+		#{usestatus,jdbcType=VARCHAR}, #{localcoding,jdbcType=VARCHAR}, #{cumruntime,jdbcType=VARCHAR})
 	</insert>
   
 </mapper>

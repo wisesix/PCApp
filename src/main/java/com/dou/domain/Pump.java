@@ -1,5 +1,7 @@
 package com.dou.domain;
 
+import java.util.Date;
+
 public class Pump {
 
 	private String pumbId;
@@ -15,7 +17,7 @@ public class Pump {
 	private String dtu;
 
 	private String dtuport;
-
+	//地理位置
 	private String villagers;
 	// 控制方式(水泵)
 	private String controlmode;
@@ -41,14 +43,41 @@ public class Pump {
 	private String sflow;
 	// 出水压力
 	private String pressure;
+	
+	
+	private String cumulativeflow;
+	
+	private Date cumruntime;
+	
 
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Pump [pumbId=" + pumbId + ", machinecde=" + machinecde + ", code=" + code + ", localcoding="
 				+ localcoding + ", usestatus=" + usestatus + ", dtu=" + dtu + ", dtuport=" + dtuport + ", villagers="
 				+ villagers + ", controlmode=" + controlmode + ", frequency=" + frequency + ", cfrequency=" + cfrequency
 				+ ", id=" + id + ", phone=" + phone + ", voltage=" + voltage + ", current=" + current + ", power="
-				+ power + ", lift=" + lift + ", sflow=" + sflow + ", pressure=" + pressure + "]";
+				+ power + ", lift=" + lift + ", sflow=" + sflow + ", pressure=" + pressure + ", cumulativeflow="
+				+ cumulativeflow + ", cumruntime=" + cumruntime + "]";
+	}
+
+	public String getCumulativeflow() {
+		return cumulativeflow;
+	}
+
+	public void setCumulativeflow(String cumulativeflow) {
+		this.cumulativeflow = cumulativeflow;
+	}
+
+	public Date getCumruntime() {
+		return cumruntime;
+	}
+
+	public void setCumruntime(Date cumruntime) {
+		this.cumruntime = cumruntime;
 	}
 
 	public String getSflow() {

@@ -12,20 +12,23 @@
 		<result column="power" jdbcType="VARCHAR" property="power" />
 		<result column="lift" jdbcType="VARCHAR" property="lift" />
 		<result column="sflow" jdbcType="VARCHAR" property="sflow" />
-		<result column="pressure" jdbcType="VARCHAR"
-			property="pressure" />
+		<result column="pressure" jdbcType="VARCHAR" property="pressure" />
+		<result column="controlmode" jdbcType="VARCHAR" property="controlmode" />
+		<result column="villagers" jdbcType="VARCHAR" property="villagers" />
+		<result column="cumulativeflow" jdbcType="VARCHAR" property="cumulativeflow" />
+		<result column="cumruntime" jdbcType="INTEGER" property="cumruntime" />
 	</resultMap>
-	
 
 	<select id="insertPumpinfo"
 		parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
 		select * from
 		tb_pump where phone =#{phone}
 	</select>
- 
+
 	<select id="selectZhexian"
 		parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
-		select * from tb_pump where code =#{code}
+		select * from
+		tb_pump where code =#{code}
 	</select>
 
 
@@ -33,14 +36,16 @@
 	<insert id="inserPumpinfo"
 		parameterType="com.dou.domain.WXPumpModel">
 		insert into tb_pump
-		(phone,code,voltage,current,power,lift)
+		(phone,code,voltage,current,power,lift,controlmode,villagers,cumulativeflow,cumruntime)
 		values
 		(#{phone,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
 		#{voltage,jdbcType=VARCHAR}, #{current,jdbcType=VARCHAR},
-		#{power,jdbcType=VARCHAR}, #{lift,jdbcType=VARCHAR})
+		#{power,jdbcType=VARCHAR}, #{lift,jdbcType=VARCHAR},
+		#{controlmode,jdbcType=VARCHAR},#{villagers,jdbcType=VARCHAR},
+		#{cumulativeflow,jdbcType=VARCHAR},#{cumruntime,jdbcType=INTEGER})
 	</insert>
 
-	
+
 	<insert id="getControlmode"
 		parameterType="com.dou.domain.WXPumpModel">
 		insert into tb_pump
@@ -48,11 +53,11 @@
 		values
 		(#{code,jdbcType=VARCHAR}, #{controlmode,jdbcType=VARCHAR})
 	</insert>
-	
-	
-	
-	
-	
+
+
+
+
+
 
 
 </mapper>

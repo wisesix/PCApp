@@ -16,7 +16,7 @@
 		<result column="phone" jdbcType="VARCHAR" property="phone" />
 	</resultMap>
 
-<!-- 	<select id="selectWxUserModel" resultType="com.dou.domain.WxUserModel" parameterType="java.Util.String">
+<select id="selectWxUserModel" resultMap="ResultMap" parameterType="com.dou.domain.WxUserModel">
 		select
 			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatus,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
 		from 
@@ -27,7 +27,8 @@
 			tb_cumulative tc on tp.phone = tc.phone
 		left join 
 			tb_paylogs pay on tc.phone = pay.phone
+	
 	</select>
- -->
+
 
 </mapper>

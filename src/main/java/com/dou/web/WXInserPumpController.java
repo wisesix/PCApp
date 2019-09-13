@@ -46,6 +46,11 @@ public class WXInserPumpController extends HttpServlet {
 		pump.setCurrent(request.getParameter("current"));
 		pump.setPower(request.getParameter("power"));
 		pump.setLift(request.getParameter("lift"));
+		
+		pump.setControlmode("1");
+		pump.setVillagers("西安");
+		pump.setCumulativeflow("0");
+		pump.setCumruntime(0);
 
 		map.put("res", wXInserPumpSercice.inserPumpbycode(pump));
 
