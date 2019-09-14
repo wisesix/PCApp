@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.WXMonitorinfoMapper">
+
+	<resultMap id="ResultMap" type="com.dou.domain.WXMonitorinfo">
+		<result column="uab" jdbcType="REAL" property="uab" />
+		<result column="ubc" jdbcType="REAL" property="ubc" />
+		<result column="uca" jdbcType="REAL" property="uca" />
+		<result column="ia" jdbcType="REAL" property="ia" />
+		<result column="ib" jdbcType="REAL" property="ib" />
+		<result column="ic" jdbcType="REAL" property="ic" />
+		<result column="lflow" jdbcType="REAL" property="lflow" />
+		<result column="tension" jdbcType="VARCHAR" property="tension" />
+		<result column="frequency" jdbcType="VARCHAR" property="frequency" />
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="codestatus" jdbcType="VARCHAR" property="codestatus" />
+		<result column="controlmode" jdbcType="VARCHAR" property="controlmode" />
+		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+		<result column="usestatus" jdbcType="VARCHAR" property="usestatus" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+	</resultMap>
+	<select id="selectWXMonitorinfo" resultMap="ResultMap" parameterType="com.dou.domain.WXMonitorinfo">
+	select 
+		tp.uab,tp.ubc,tp.uca,tp.ia,tp.ib,tp.ic,tp.lflow,tm.code,tm.codestatus,tm.controlmode,tm.frequency,tm.tension,tc.machinecde,tc.usestatus
+
+	from 
+		tb_pumptable tp,tb_pump tm,tb_machine tc 
+	where 
+		tp.phone = tm.phone AND tm.phone = tc.phone
+	</select>
+
+
+</mapper>

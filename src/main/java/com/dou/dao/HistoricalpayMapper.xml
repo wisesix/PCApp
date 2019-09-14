@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.HistoricalpayMapper">
+
+	<resultMap id="ResultMap" type="com.dou.domain.Historicalpay">
+		<result column="buid" jdbcType="VARCHAR" property="buid" />
+		<result column="time" jdbcType="DATE" property="time" />
+		<result column="money" jdbcType="REAL" property="money" />
+		<result column="watersum" jdbcType="VARCHAR"
+			property="watersum" />
+		<result column="start" jdbcType="DATE" property="start" />
+		<result column="end" jdbcType="DATE" property="end" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+	</resultMap>
+
+	<select id="selectHistoricalpayinfo" resultMap="ResultMap"
+		parameterType="com.dou.domain.Historicalpay">
+		select
+		tp.buid,tp.time,tp.money,top.watersum,top.start,top.end
+		from
+		tb_paylogs tp,tb_operatorlogs top
+		where
+		tp.phone = top.phone
+
+
+	</select>
+
+</mapper>
