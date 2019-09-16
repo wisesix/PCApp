@@ -13,7 +13,7 @@
 	
 	
 	<select id="pumpmachineinfo" resultType="com.dou.domain.PumpMachine" parameterType="com.dou.domain.PumpMachine">
- 	select tm.usestatus,tp.codestatus,tp.code,tm.machinecde  
+ 	select tm.usestatusA,tm.usestatusB,tm.usestatusC,tp.codestatus,tp.code,tm.machinecde  
  		from tb_pump tp
  		left join tb_machine tm ON tp.phone = tm.phone
  	</select>

@@ -12,7 +12,11 @@ public interface PumpMachineControllerService {
 	/*PumpMachine pumpmachineinfo(PumpMachine pumpmachine);*/
 
 	
-	List<PumpMachine> pumpmachineinfo(String phone);
+	List<PumpMachine> pumpmachineinfo(String code);
+	
+	
+	
+	
 }
 
 

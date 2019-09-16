@@ -15,9 +15,9 @@ public class PumpMachineControllerServiceImpl implements PumpMachineControllerSe
 	PumpMachineMapper PumpMachineMapper;
 
 	@Override
-	public List<PumpMachine> pumpmachineinfo(String phone) {
+	public List<PumpMachine> pumpmachineinfo(String code) {
 		// TODO Auto-generated method stub
-		return PumpMachineMapper.pumpmachineinfo(phone);
+		return PumpMachineMapper.pumpmachineinfo(code);
 	}
 	
 /*	@Override

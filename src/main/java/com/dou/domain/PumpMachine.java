@@ -1,44 +1,67 @@
 package com.dou.domain;
 
 public class PumpMachine {
-	
-	private String usestatus;
-	
+
+	private String usestatusA;
+	private String usestatusB;
+	private String usestatusC;
+
 	private String codestatus;
 	private String code;
 	private String machinecde;
-	
-	public String getCode() {
-		return code;
+
+	@Override
+	public String toString() {
+		return "PumpMachine [usestatusA=" + usestatusA + ", usestatusB=" + usestatusB + ", usestatusC=" + usestatusC
+				+ ", codestatus=" + codestatus + ", code=" + code + ", machinecde=" + machinecde + "]";
 	}
-	public void setCode(String code) {
-		this.code = code;
+
+	public String getUsestatusA() {
+		return usestatusA;
 	}
-	private String phone;
-	
-	public String getUsestatus() {
-		return usestatus;
+
+	public void setUsestatusA(String usestatusA) {
+		this.usestatusA = usestatusA;
 	}
-	public void setUsestatus(String usestatus) {
-		this.usestatus = usestatus;
+
+	public String getUsestatusB() {
+		return usestatusB;
 	}
+
+	public void setUsestatusB(String usestatusB) {
+		this.usestatusB = usestatusB;
+	}
+
+	public String getUsestatusC() {
+		return usestatusC;
+	}
+
+	public void setUsestatusC(String usestatusC) {
+		this.usestatusC = usestatusC;
+	}
+
 	public String getCodestatus() {
 		return codestatus;
 	}
+
 	public void setCodestatus(String codestatus) {
 		this.codestatus = codestatus;
 	}
-	public String getPhone() {
-		return phone;
+
+	public String getCode() {
+		return code;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+
+	public void setCode(String code) {
+		this.code = code;
 	}
-	@Override
-	public String toString() {
-		return "PumpMachine [usestatus=" + usestatus + ", codestatus=" + codestatus + ", phone=" + phone + "]";
+
+	public String getMachinecde() {
+		return machinecde;
 	}
-	
-	
+
+	public void setMachinecde(String machinecde) {
+		this.machinecde = machinecde;
+	}
 
 }

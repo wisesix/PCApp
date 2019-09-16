@@ -18,19 +18,22 @@
 	})
 </script>
 <style>
-		.circle1_3{
-			background:;
-		}
-		.green{
-			background: green;
-		}
-		.red{
-			background: red;
-		}
-		.orange{
-			background: orange;
-		}
-	</style>
+.circle1_3 {
+	background:;
+}
+
+.green {
+	background: green;
+}
+
+.red {
+	background: red;
+}
+
+.orange {
+	background: orange;
+}
+</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".click").click(function() {
@@ -57,89 +60,89 @@
 </script>
 
 <script type="text/javascript">
-function changeColor(){
-	var datas=[];
-	$.ajax({
-		type:"post",
-		url:"pumpmachine/info.do",
-		data:{
-		},
-		success:function(data){
-			var arr = $.parseJSON(data);
-			for(var i=0;i<arr.length;i++){
-				if (arr[i].code == "sb001") {
-					//console.log(arr[i]);
-					switch(arr[i].codestatus){
-					case "0":
-						$(".circle1_3").addClass('red');
-						break;
-					case "1":
-						$(".circle1_3").addClass('green');
-						break;
-					case "2":
-						$(".circle1_3").addClass('orange');
-						break;
-					default:
-						$(".circle1_3").addClass('red');
+	function changeColor() {
+		var datas = [];
+		$.ajax({
+			type : "post",
+			url : "pumpmachine/info.do",
+			data : {},
+			success : function(data) {
+				var arr = $.parseJSON(data);
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i].code == "sb001") {
+						//console.log(arr[i]);
+						switch (arr[i].codestatus) {
+						case "0":
+							$(".circle1_3").addClass('red');
+							break;
+						case "1":
+							$(".circle1_3").addClass('green');
+							break;
+						case "2":
+							$(".circle1_3").addClass('orange');
+							break;
+						default:
+							$(".circle1_3").addClass('red');
+						}
+
+					} else {
+						console.log(arr[i]);
+						switch (arr[i].codestatus) {
+						case "0":
+							$(".circle2_3").addClass('red');
+							break;
+						case "1":
+							$(".circle2_3").addClass('green');
+							break;
+						case "2":
+							$(".circle2_3").addClass('orange');
+							break;
+						default:
+							$(".circle2_3").addClass('red');
+						}
 					}
-					
-				} else {
-					console.log(arr[i]);
-					switch(arr[i].codestatus){
-					case "0":
-						$(".circle2_3").addClass('red');
-						break;
-					case "1":
-						$(".circle2_3").addClass('green');
-						break;
-					case "2":
-						$(".circle2_3").addClass('orange');
-						break;
-					default:
-						$(".circle2_3").addClass('red');
-					}
+
 				}
+			},
+		});
+	}
+	$(document).ready(function() {
+		//循环执行，每隔1秒钟执行一次 1000 
+		var t1 = window.setInterval(changeColor, 1000);
+	});
+</script>
+
+<script type="text/javascript">
+	var datas = [];
+	$.ajax({
+		type : "post",
+		url : "pumpmachine/info.do",
+		data : {},
+		success : function(data) {
+			var arr = $.parseJSON(data);
+			if (arr.code == "sb001") {
 				
-				
+			}
+			
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i]);
+				switch (arr[i].codestatus) {
+				case "0":
+					$(".rect1_1").addClass('red');
+					break;
+				case "1":
+					$(".rect1_1").addClass('green');
+					break;
+				case "2":
+					$(".rect1_1").addClass('orange');
+					break;
+				default:
+					$(".rect1_1").addClass('red');
+				}
 			}
 		},
 	});
-}
-$(document).ready(function(){
-    //循环执行，每隔1秒钟执行一次 1000 
-    var t1=window.setInterval(changeColor, 1000);
- });
-		</script>
-
-<script type="text/javascript">
-			var datas=[];
-			$.ajax({
-				type:"post",
-				url:"pumpmachine/info.do",
-				data:{
-					phone:"18098040334"
-				},
-				success:function(data){
-					var arr = $.parseJSON(data);
-					for(var i=0;i<arr.length;i++){
-						console.log(arr[i]);
-						switch(arr[i].codestatus){
-						case "0":
-							$(".rect1_1").addClass('red');
-							break;
-						case "1":
-							$(".rect1_1").addClass('green');
-							break;
-						case "2":
-							$(".rect1_1").addClass('orange');
-							break;
-						default:
-							$(".rect1_1").addClass('red');
-						}
-					}
-				},
-			});
-		</script>
+</script>
 
 </head>
 
@@ -151,7 +154,7 @@ $(document).ready(function(){
 
 	<div class="artical">
 		<div class="wrap">
-		
+
 			<div class="coltop">
 				<p class="sbtitle">运城xxx村灌溉监控</p>
 			</div>
@@ -180,7 +183,7 @@ $(document).ready(function(){
 					<div class="scbj">
 						<div class="yline1_0"></div>
 						<div class="rect1_0">
-							<button class="btn"  style="width: 50px; height: 30px;">水池</button>
+							<button class="btn" style="width: 50px; height: 30px;">水池</button>
 						</div>
 
 						<div class="yline1_11"></div>
@@ -201,32 +204,7 @@ $(document).ready(function(){
 						</div>
 						<div class="yline1_32"></div>
 					</div>
-
 				</div>
-			
-			<div>
-				<table class="tablelist">
-					<thead>
-						<tr>
-							<th>电流</th>
-							<th>电压</th>
-							<th>功率</th>
-						</tr>
-					</thead>
-				<tbody>
-		<c:forEach items="${list}" var="pumpinfo">
-			<tr>
-				<td>${pumpinfo.current }</td>
-				<td>${pumpinfo.voltage }</td>
-				<td>${pumpinfo.power }</td>
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>
-				
-						
-			</div>
-			
 			</div>
 
 			<!-- 右侧水泵布局 -->
