@@ -19,14 +19,14 @@ public class MachineConfigController {
 	@Autowired	
 	MachineConfigService machineConfigService;
 	
-	@RequestMapping("/getMachineList.do")
+	@RequestMapping("/getMachineList")
 	public String getUserList(Map<String, Object> map, HttpServletRequest re, Machine machine) {
 		
-		List<Map<String, Machine>> list = machineConfigService.getMachineList(machine);
+		// List<Map<String, Machine>> list = machineConfigService.getMachineList(machine);
 		
-		/*
-		 * List<Map<String, Machine>> list = machineConfigService.getMachineList(null);
-		 */
+		
+		  List<Map<String, Machine>> list = machineConfigService.getMachineList(null);
+		 
 		map.put("list", list);
 		return "imgtable";
 	

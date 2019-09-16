@@ -41,5 +41,12 @@ public class WXInserPumpSerciceImpl implements WXInserPumpSercice{
 		return WXPumpMapper.getControlmode(wXPumpModel);
 	}
 
+	@Override
+	public List<WXPumpModel> getWebjk(String phone) {
+		// TODO Auto-generated method stub
+		return WXPumpMapper.getWebjk(phone);
+	}
+
+
 
 }

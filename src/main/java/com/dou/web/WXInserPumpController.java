@@ -36,7 +36,7 @@ public class WXInserPumpController extends HttpServlet {
 
 	@RequestMapping(value = "/inserpump", method = { RequestMethod.POST })
 	@ResponseBody
-	public void getpump(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+	public void inserpump(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("res", 0);
 		WXPumpModel pump = new WXPumpModel();

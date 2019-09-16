@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 import com.dou.domain.WXPumpModel;
@@ -56,7 +57,17 @@ public class WXPumpInfo {
 	
 	
 	
-	
+	@RequestMapping(value = "/jiankong", method = { RequestMethod.GET })
+	public String jiankong(ModelAndView map,HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
+		
+		List<WXPumpModel> list = wXInserPumpSercice.getWebjk(request.getParameter("phone"));
+		WXPumpModel model = new WXPumpModel();
+		model.setVoltage("22");
+		list.add(model);
+		map.addObject("list", list);
+		System.out.println(list);
+		return "device";
+	}
 	
 	
 	

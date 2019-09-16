@@ -56,8 +56,10 @@
 
 
 
-
-
-
+	<select id="getWebjk"
+		parameterType="com.dou.domain.WXPumpModel" resultMap="BaseResultMap">
+		select * from
+		tb_pump where phone =#{phone}
+	</select>
 
 </mapper>

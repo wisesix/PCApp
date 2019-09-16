@@ -23,4 +23,8 @@ public interface WXInserPumpSercice {
 	int getControlmode(WXPumpModel wXPumpModel);
 	
 	
+	
+	
+	
+	List<WXPumpModel> getWebjk(String phone);
 }

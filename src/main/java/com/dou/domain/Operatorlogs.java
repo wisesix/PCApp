@@ -26,13 +26,25 @@ public class Operatorlogs {
     //用水量
     private String watersum;
     
+    private Float total;
+    
+    private Float price;
     
     
     
     
-    
-    
-    
+	public Float getTotal() {
+		return total;
+	}
+	public void setTotal(Float total) {
+		this.total = total;
+	}
+	public Float getPrice() {
+		return price;
+	}
+	public void setPrice(Float price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
 		return "Operatorlogs [id=" + id + ", userid=" + userid + ", machinecde=" + machinecde + ", time=" + time

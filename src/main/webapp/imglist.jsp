@@ -75,7 +75,7 @@
 					ctx.beginPath();
 					ctx.moveTo(numsX, numsY);
 					ctx.lineTo(numsNX, numsNY);
-					ctx.lineWidth = 6;
+					ctx.lineWidth = 10;
 					ctx.strokeStyle = "#80aa33";
 					ctx.closePath();
 					ctx.stroke();

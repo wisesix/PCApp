@@ -18,4 +18,11 @@ public interface WXPumpMapper {
 	//控制方式设置
 	int getControlmode(WXPumpModel wXPumpModel);
 	
+	
+	
+	List<WXPumpModel> getWebjk(String phone);
+	
+	
+	
+	
 }

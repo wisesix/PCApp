@@ -32,11 +32,7 @@ public class WXMachineInfo {
 	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
 
 		List<Machine> machine = machineConfigService.insertMachineinfo(request.getParameter("phone"));
-
 		
 		printWriter.write(JSON.toJSONString(machine));
 	}
-	
-	
-	
 }

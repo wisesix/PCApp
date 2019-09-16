@@ -273,11 +273,9 @@
  -->
 
 	<update id="updateOperator" parameterType="com.dou.domain.Operatorlogs">
- 		update tb_operatorlogs set status=#{status,jdbcType=INTEGER},end = #{end},realtime=#{realtime,jdbcType=INTEGER}
+ 		update tb_operatorlogs set status=#{status,jdbcType=INTEGER},end = #{end},realtime=#{realtime,jdbcType=INTEGER},total=#{total,jdbcType=REAL} 
  		where id=#{id}
  	</update>
-	
-
 
 
 
