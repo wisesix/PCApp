@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.StartChargMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.dou.domain.StartCharg">
+		<result column="machinecde" jdbcType="VARCHAR"
+			property="machinecde" />
+		<result column="valvesta" jdbcType="VARCHAR"
+			property="valvesta" />
+		<result column="irrtime" jdbcType="DATE" property="irrtime" />
+		<result column="watersum" jdbcType="VARCHAR"
+			property="watersum" />
+		<result column="amountspent" jdbcType="REAL"
+			property="amountspent" />
+		<result column="insflowrate" jdbcType="VARCHAR"
+			property="insflowrate" />
+	</resultMap>
+
+	<select id="getStartCharg"
+		parameterType="com.dou.domain.StartCharg" resultMap="BaseResultMap">
+		select * from
+		tb_machine where machinecde =#{machinecde}
+	</select>
+</mapper>
