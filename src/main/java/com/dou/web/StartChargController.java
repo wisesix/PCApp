@@ -30,8 +30,6 @@ public class StartChargController {
 	@ResponseBody
 	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) throws ParseException {
 		
-		
-		 
 
 		StartCharg sh = startChargService.getStartCharg(request.getParameter("machinecde"));
 

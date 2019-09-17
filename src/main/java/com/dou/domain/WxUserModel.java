@@ -18,7 +18,9 @@ public class WxUserModel {
 	// 水栓编码
 	private String machinecde;
 	// 运行状态
-	private String usestatus;
+	private String usestatusA;
+	private String usestatusB;
+	private String usestatusC;
 	// 累计浇灌时间
 	private Date cumtime;
 	// 累计消费金额
@@ -33,8 +35,33 @@ public class WxUserModel {
 	@Override
 	public String toString() {
 		return "WxUserModel [code=" + code + ", codestatus=" + codestatus + ", controlmode=" + controlmode
-				+ ", machinecde=" + machinecde + ", usestatus=" + usestatus + ", cumtime=" + cumtime + ", cumamount="
-				+ cumamount + ", cumwater=" + cumwater + ", staus=" + staus + ", phone=" + phone + "]";
+				+ ", machinecde=" + machinecde + ", usestatusA=" + usestatusA + ", usestatusB=" + usestatusB
+				+ ", usestatusC=" + usestatusC + ", cumtime=" + cumtime + ", cumamount=" + cumamount + ", cumwater="
+				+ cumwater + ", staus=" + staus + ", phone=" + phone + "]";
+	}
+
+	public String getUsestatusA() {
+		return usestatusA;
+	}
+
+	public void setUsestatusA(String usestatusA) {
+		this.usestatusA = usestatusA;
+	}
+
+	public String getUsestatusB() {
+		return usestatusB;
+	}
+
+	public void setUsestatusB(String usestatusB) {
+		this.usestatusB = usestatusB;
+	}
+
+	public String getUsestatusC() {
+		return usestatusC;
+	}
+
+	public void setUsestatusC(String usestatusC) {
+		this.usestatusC = usestatusC;
 	}
 
 	public String getCode() {
@@ -67,14 +94,6 @@ public class WxUserModel {
 
 	public void setMachinecde(String machinecde) {
 		this.machinecde = machinecde;
-	}
-
-	public String getUsestatus() {
-		return usestatus;
-	}
-
-	public void setUsestatus(String usestatus) {
-		this.usestatus = usestatus;
 	}
 
 	public Date getCumtime() {

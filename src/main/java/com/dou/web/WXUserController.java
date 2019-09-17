@@ -27,7 +27,10 @@ public class WXUserController {
 	@RequestMapping(value = "/getuser")
 	@ResponseBody
 	public void getUser(PrintWriter printWriter,String userName,String passWord, HttpSession session) {
+		
 		Map<String, Object> map = new HashMap<String, Object>();
+		
+		
 		map.put("res", 0);
 		if(!StringUtils.isBlank(userName) && !StringUtils.isBlank(passWord)) {
 			Userinfo user = userService.findUserByName(userName);
@@ -37,6 +40,8 @@ public class WXUserController {
 				}
 			}
 		}
+		
+		
 		printWriter.write(JSON.toJSONString(map));
 	}
 

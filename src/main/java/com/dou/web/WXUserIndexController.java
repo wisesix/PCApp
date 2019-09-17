@@ -1,6 +1,7 @@
 package com.dou.web;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,7 +33,7 @@ public class WXUserIndexController {
 	@ResponseBody
 	public void index(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 
-		WxUserModel user = wxUserService.selectWxUserModel(request.getParameter("phone"));
+		List<WxUserModel> user = wxUserService.selectWxUserModel(request.getParameter("phone"));
 		printWriter.write(JSON.toJSONString(user));
 	}
 	

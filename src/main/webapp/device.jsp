@@ -67,6 +67,7 @@
 			url : "pumpmachine/info.do",
 			data : {},
 			success : function(data) {
+				
 				var arr = $.parseJSON(data);
 				for (var i = 0; i < arr.length; i++) {
 					if (arr[i].code == "sb001") {
@@ -88,7 +89,7 @@
 						
 						//1号水泵1号水栓
 						switch (arr[i].usestatusA) {
-						case "0":
+						 case "0":
 						
 						    $(".rect1_1").addClass('red');
 						  break;
@@ -225,34 +226,6 @@
 	});
 </script>
 
-<!-- <script type="text/javascript">
-	var datas = [];
-	$.ajax({
-		type : "post",
-		url : "pumpmachine/info.do",
-		data : {},
-		success : function(data) {
-			var arr = $.parseJSON(data);
-			for (var i = 0; i < arr.length; i++) {
-				console.log(arr[i]);
-				switch (arr[i].codestatus) {
-				case "0":
-					$(".rect1_1").addClass('red');
-					break;
-				case "1":
-					$(".rect1_1").addClass('green');
-					break;
-				case "2":
-					$(".rect1_1").addClass('orange');
-					break;
-				default:
-					$(".rect1_1").addClass('red');
-				}
-			}
-		},
-	});
-</script> -->
-
 <script type="text/javascript">
 	var datas = [];
 	$.ajax({
@@ -284,7 +257,10 @@
 		},
 	});
 </script>
+
 </head>
+
+
 <body>
 
 	<div class="place">
@@ -408,5 +384,27 @@
 
 			</div>
 		</div>
+
+
+<!-- test -->
+<script type="text/javascript">
+	window.onload(function requestData(){
+		$.ajax({
+			url:"pumpmachine/info.do",
+			type:"post",
+			dataType:"json",
+			
+			success:function(data){
+				alert(data);
+			},
+			error: function (msg) {
+				alert("ajax连接异常：" + msg);
+			}
+		});
+	});
+
+</script>
+	
+	
 </body>
 </html>

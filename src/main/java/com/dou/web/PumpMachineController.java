@@ -30,7 +30,10 @@ public class PumpMachineController {
 	public List<PumpMachine> info(HttpServletRequest request) {
 		
 		List<PumpMachine> pm = pumpMachineControllerService.pumpmachineinfo(request.getParameter("code"));
+		
 		System.out.println("pm" + pm);
+	
+		
 		return pm;
 	}
 	

@@ -8,13 +8,10 @@
 	<!-- Druid -->
 	<bean id="dataSource"
 		class="com.alibaba.druid.pool.DruidDataSource">
-		<!-- 47.93.25.237 -->
-		<!-- localhost -->
-		<property name="url" value="jdbc:mysql://47.93.25.237:3306/waterp"  /> 
-		<property name="username" value="root" />
-		<!-- _Admin123 -->
-		<!-- root -->
-		<property name="password" value="_Admin123" /> 
+		<property name="url"
+			value="jdbc:mysql://172.17.23.4:3306/waterp" />
+		<property name="username" value="dou" />
+		<property name="password" value="WE7&hSZj" />
 	</bean>
 
 	<!-- 注册SqlSessionFactoryBean -->

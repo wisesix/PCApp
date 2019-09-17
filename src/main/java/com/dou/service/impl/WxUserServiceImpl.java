@@ -1,5 +1,7 @@
 package com.dou.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +13,13 @@ public class WxUserServiceImpl implements WxUserService{
 	
 	@Autowired
 	WxUserMapper WxUserMapper;
-	
-	
+
 	@Override
-	public WxUserModel selectWxUserModel(String phone) {
+	public List<WxUserModel> selectWxUserModel(String phone) {
 		// TODO Auto-generated method stub
 		return WxUserMapper.selectWxUserModel(phone);
 	}
+	
+	
 
 }
