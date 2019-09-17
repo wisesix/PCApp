@@ -73,6 +73,7 @@
 						//console.log(arr[i]);
 						switch (arr[i].codestatus) {
 						case "0":
+							
 							$(".circle1_3").addClass('red');
 							break;
 						case "1":
@@ -84,9 +85,67 @@
 						default:
 							$(".circle1_3").addClass('red');
 						}
+						
+						//1号水泵1号水栓
+						switch (arr[i].usestatusA) {
+						case "0":
+						
+						    $(".rect1_1").addClass('red');
+						  break;
+						case "1":
+							 $(".rect1_1").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect1_1").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect1_1").addClass('red');
+						}
+						
+						
+						//1号水泵2号水栓
+						switch (arr[i].usestatusB) {
+						case "0":
+						
+						    $(".rect1_2").addClass('red');
+						  break;
+						case "1":
+							 $(".rect1_2").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect1_2").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect1_2").addClass('red');
+						}
+						//1号水泵3号水栓
+						switch (arr[i].usestatusC) {
+						case "0":
+						
+						    $(".rect1_3").addClass('red');
+						  break;
+						case "1":
+							 $(".rect1_3").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect1_3").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect1_3").addClass('red');
+						}
+						
+						
 
-					} else {
-						console.log(arr[i]);
+					} else if (arr[i].code == "sb002") {
+                        console.log(arr[i]);
+                        
+						
 						switch (arr[i].codestatus) {
 						case "0":
 							$(".circle2_3").addClass('red');
@@ -100,6 +159,60 @@
 						default:
 							$(".circle2_3").addClass('red');
 						}
+						
+						//2号水泵1号水栓
+						switch (arr[i].usestatusA) {
+						case "0":
+						    $(".rect2_1").addClass('red');
+						  break;
+						case "1":
+							 $(".rect2_1").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect2_1").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect2_1").addClass('red');
+						}
+						
+						//2号水泵2号水栓
+						switch (arr[i].usestatusB) {
+						case "0":
+						
+						    $(".rect2_2").addClass('red');
+						  break;
+						case "1":
+							 $(".rect2_2").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect2_2").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect2_2").addClass('red');
+						}
+						
+						//2号水泵3号水栓
+						switch (arr[i].usestatusC) {
+						case "0":
+						
+						    $(".rect2_3").addClass('red');
+						  break;
+						case "1":
+							 $(".rect2_3").addClass('green');
+							  break;
+							  
+						case "2":
+							$(".rect2_3").addClass('orange');
+							break;  
+							  
+						default:
+							$(".rect2_3").addClass('red');
+						}
+						
 					}
 
 				}
@@ -112,7 +225,7 @@
 	});
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var datas = [];
 	$.ajax({
 		type : "post",
@@ -120,10 +233,6 @@
 		data : {},
 		success : function(data) {
 			var arr = $.parseJSON(data);
-			if (arr.code == "sb001") {
-				
-			}
-			
 			for (var i = 0; i < arr.length; i++) {
 				console.log(arr[i]);
 				switch (arr[i].codestatus) {
@@ -142,10 +251,40 @@
 			}
 		},
 	});
+</script> -->
+
+<script type="text/javascript">
+	var datas = [];
+	$.ajax({
+		type : "post",
+		url : "pumpmachine/info.do",
+		data : {},
+		success : function(data) {
+			var arr = $.parseJSON(data);
+			if (arr.code == "sb001") {
+
+			}
+
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i]);
+				switch (arr[i].codestatus) {
+				case "0":
+					$(".rect1_3").addClass('red');
+					break;
+				case "1":
+					$(".rect1_3").addClass('green');
+					break;
+				case "2":
+					$(".rect1_3").addClass('orange');
+					break;
+				default:
+					$(".rect1_3").addClass('red');
+				}
+			}
+		},
+	});
 </script>
-
 </head>
-
 <body>
 
 	<div class="place">

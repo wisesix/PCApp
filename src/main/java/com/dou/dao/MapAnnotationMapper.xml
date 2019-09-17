@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.MapAnnotationMapper">
+
+	<resultMap id="BaseResultMap" type="com.dou.domain.MapAnnotation">
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+		<result column="phone" jdbcType="VARCHAR" property="phone" />
+	</resultMap>
+
+	<select id="getAnnotations"
+		parameterType="com.dou.domain.MapAnnotation" resultMap="BaseResultMap">
+		select * from
+		tb_pump where code =#{code}
+	</select>
+	
+</mapper>

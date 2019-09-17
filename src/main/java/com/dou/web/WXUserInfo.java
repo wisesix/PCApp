@@ -29,14 +29,13 @@ public class WXUserInfo {
 	@Autowired
 	WXUserinfoService wXUserinfoService;
 
-	@RequestMapping(value = "/uinfo", 
-			method = { RequestMethod.GET }, 
-			produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/uinfo", method = { RequestMethod.GET },  produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public void uinfo(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 
 		Userinfo user = wXUserinfoService.inserUserinfoinfo(request.getParameter("phone"));
 		printWriter.write(JSON.toJSONString(user));
+		
 	}
 
 }

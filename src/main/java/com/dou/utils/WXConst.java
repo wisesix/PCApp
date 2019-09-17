@@ -2,9 +2,9 @@ package com.dou.utils;
 
 public class WXConst {
 	//微信小程序appid
-	public static String appId = "";
+	public static String appId = "wx8f818265fbffc00d";
 	//微信小程序appsecret
-	public static String appSecret = "";
+	public static String appSecret = "620b3064534ed5edf525745312bb1711";
 	//微信支付主体
 	public static String title = "";
 	

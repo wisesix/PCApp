@@ -1,6 +1,5 @@
 package com.dou.domain;
 
-import java.util.Date;
 
 public class WXPumpModel {
 

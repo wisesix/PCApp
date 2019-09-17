@@ -96,9 +96,7 @@ body, html, #container {
 		ctx.beginPath();
 		var data = [
 		//地图标注点
-		new BMap.Point(108.960603, 34.23197),
-		new BMap.Point(108.9605603, 34.232197),
-		new BMap.Point(108.9604603, 34.233197),
+		//new BMap.Point(108.960603, 34.23197),
 		];
 
 		for (var i = 0, len = data.length; i < len; i++) {
