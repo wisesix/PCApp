@@ -8,7 +8,9 @@
 		<result column="codestatus" jdbcType="VARCHAR" property="codestatus" />
 		<result column="controlmode" jdbcType="VARCHAR" property="controlmode" />
 		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
-		<result column="usestatus" jdbcType="VARCHAR" property="usestatus" />
+		<result column="usestatusA" jdbcType="VARCHAR" property="usestatusA" />
+		<result column="usestatusB" jdbcType="VARCHAR" property="usestatusB" />
+		<result column="usestatusC" jdbcType="VARCHAR" property="usestatusC" />
 		<result column="cumtime" jdbcType="DATE" property="cumtime" />
 		<result column="cumamount" jdbcType="VARCHAR" property="cumamount" />
 		<result column="cumwater" jdbcType="VARCHAR" property="cumwater" />
@@ -18,7 +20,7 @@
 
 <select id="selectWxUserModel" resultMap="ResultMap" parameterType="com.dou.domain.WxUserModel">
 		select
-			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatus,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
+			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatusA,tm.usestatusB,tm.usestatusC,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
 		from 
 			tb_pump tp
 		left join 
