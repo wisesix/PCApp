@@ -62,160 +62,100 @@
 <script type="text/javascript">
 	function changeColor() {
 		var datas = [];
-		$.ajax({
+		$.ajax({ 
 			type : "post",
 			url : "pumpmachine/info.do",
 			data : {},
 			success : function(data) {
-				
 				var arr = $.parseJSON(data);
 				for (var i = 0; i < arr.length; i++) {
 					if (arr[i].code == "sb001") {
-						//console.log(arr[i]);
-						switch (arr[i].codestatus) {
-						case "0":
-							
+						/**
+						codestatus  1#水泵     0 红色     1绿色   2 黄色
+						usestatusA    1#水泵下的   1#水栓      0 红色     1绿色   2 黄色
+						usestatusB    1#水泵下的   2#水栓      0 红色     1绿色   2 黄色
+						usestatusC   1#水泵下的   3#水栓      0 红色     1绿色   2 黄色
+						**/
+						if(arr[i].codestatus == 0){
+							//一号水泵
 							$(".circle1_3").addClass('red');
-							break;
-						case "1":
+						}else if(arr[i].codestatus == 1){
 							$(".circle1_3").addClass('green');
-							break;
-						case "2":
+						}else{
 							$(".circle1_3").addClass('orange');
-							break;
-						default:
-							$(".circle1_3").addClass('red');
 						}
 						
-						//1号水泵1号水栓
-						switch (arr[i].usestatusA) {
-						 case "0":
-						
-						    $(".rect1_1").addClass('red');
-						  break;
-						case "1":
-							 $(".rect1_1").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect1_1").addClass('orange');
-							break;  
-							  
-						default:
+						//一号水泵 一号水栓
+						 if(arr[i].usestatusA == 0){
 							$(".rect1_1").addClass('red');
+						}else if(arr[i].usestatusA == 1){
+							$(".rect1_1").addClass('green');
+						}else{
+							$(".rect1_1").addClass('orange');
 						}
 						
-						
-						//1号水泵2号水栓
-						switch (arr[i].usestatusB) {
-						case "0":
-						
-						    $(".rect1_2").addClass('red');
-						  break;
-						case "1":
-							 $(".rect1_2").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect1_2").addClass('orange');
-							break;  
-							  
-						default:
+						//一号水泵 二号水栓
+						 if(arr[i].usestatusB == 0){
 							$(".rect1_2").addClass('red');
-						}
-						//1号水泵3号水栓
-						switch (arr[i].usestatusC) {
-						case "0":
+						}else if(arr[i].usestatusB == 1){
+							$(".rect1_2").addClass('green');
+						}else{
+							$(".rect1_2").addClass('orange');
+						} 
 						
-						    $(".rect1_3").addClass('red');
-						  break;
-						case "1":
-							 $(".rect1_3").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect1_3").addClass('orange');
-							break;  
-							  
-						default:
-							$(".rect1_3").addClass('red');
-						}
-						
-						
-
+						//一号水泵 三号水栓
+						 if(arr[i].usestatusC == 0){
+							$(".machine3").addClass('red');
+						}else if(arr[i].usestatusC == 1){
+							$(".machine3").addClass('green');
+						}else{
+							$(".machine3").addClass('orange');
+						} 
+						 
 					} else if (arr[i].code == "sb002") {
-                        console.log(arr[i]);
-                        
-						
-						switch (arr[i].codestatus) {
-						case "0":
+						//二号水泵
+						if(arr[i].codestatus == 0){
 							$(".circle2_3").addClass('red');
-							break;
-						case "1":
+						}else if(arr[i].codestatus == 1){
 							$(".circle2_3").addClass('green');
-							break;
-						case "2":
+						}else{
 							$(".circle2_3").addClass('orange');
-							break;
-						default:
-							$(".circle2_3").addClass('red');
 						}
-						
-						//2号水泵1号水栓
-						switch (arr[i].usestatusA) {
-						case "0":
-						    $(".rect2_1").addClass('red');
-						  break;
-						case "1":
-							 $(".rect2_1").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect2_1").addClass('orange');
-							break;  
-							  
-						default:
+						//ok当弹出  有的时候 这一段就可以删掉了
+						////////////////
+						if(arr[i].usestatusA){
+							alert("有");
+						}else{
+							alert("无");
+						}
+						//////////////
+						//二号水泵 一号水栓
+						  if(arr[i].usestatusA == 0){
 							$(".rect2_1").addClass('red');
-						}
+						}else if(arr[i].usestatusA == 1){
+							$(".rect2_1").addClass('green');
+						}else{
+							$(".rect2_1").addClass('orange');
+						} 
 						
-						//2号水泵2号水栓
-						switch (arr[i].usestatusB) {
-						case "0":
-						
-						    $(".rect2_2").addClass('red');
-						  break;
-						case "1":
-							 $(".rect2_2").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect2_2").addClass('orange');
-							break;  
-							  
-						default:
+						//二号水泵 二号水栓
+						 if(arr[i].usestatusB == 0){
 							$(".rect2_2").addClass('red');
-						}
+						}else if(arr[i].usestatusB == 1){
+							$(".rect2_2").addClass('green');
+						}else{
+							$(".rect2_2").addClass('orange');
+						} 
 						
-						//2号水泵3号水栓
-						switch (arr[i].usestatusC) {
-						case "0":
-						
-						    $(".rect2_3").addClass('red');
-						  break;
-						case "1":
-							 $(".rect2_3").addClass('green');
-							  break;
-							  
-						case "2":
-							$(".rect2_3").addClass('orange');
-							break;  
-							  
-						default:
+						 //二号水泵 三号水栓
+						 if(arr[i].usestatusC == 0){
 							$(".rect2_3").addClass('red');
-						}
-						
+						}else if(arr[i].usestatusC == 1){
+							$(".rect2_3").addClass('green');
+						}else{
+							$(".rect2_3").addClass('orange');
+						}  
 					}
-
 				}
 			},
 		});
@@ -223,7 +163,9 @@
 	$(document).ready(function() {
 		//循环执行，每隔1秒钟执行一次 1000 
 		var t1 = window.setInterval(changeColor, 1000);
-	});
+	}); 
+	
+	
 </script>
 
 <script type="text/javascript">
@@ -290,7 +232,7 @@
 
 				<!-- 左侧水泵水栓模块布局 -->
 				<div class="sbsstitle">
-					<div class="circle1_3">
+					<div class="circle1_3" style="border:1px solid black">
 						<p class="text_ss1_0">1#水泵</p>
 					</div>
 					<div class="xline"></div>
@@ -302,25 +244,26 @@
 						</div>
 
 						<div class="yline1_11"></div>
-						<div class="rect1_1">
+						<div class="rect1_1" style="border:1px solid black">
 							<p class="text_ss1_1">1#水栓</p>
 						</div>
 						<div class="yline1_12"></div>
 
 						<div class="yline1_21"></div>
-						<div class="rect1_2">
+						<div class="rect1_2" style="border:1px solid black">
 							<p class="text_ss1_2">2#水栓</p>
 						</div>
 						<div class="yline1_22"></div>
-
 						<div class="yline1_31"></div>
-						<div class="rect1_3">
+						<div class="machine3" style="border:1px solid black">
 							<p class="text_ss1_3">3#水栓</p>
 						</div>
 						<div class="yline1_32"></div>
 					</div>
 				</div>
 			</div>
+
+
 
 			<!-- 右侧水泵布局 -->
 			<div class="colright">
@@ -338,7 +281,7 @@
 
 				<!-- 右侧水泵水栓模块布局 -->
 				<div class="sbsstitle">
-					<div class="circle2_3">
+					<div class="circle2_3" style="border:1px solid black">
 						<p class="text_ss2_0">2#水泵</p>
 					</div>
 					<div class="xline"></div>
@@ -350,24 +293,23 @@
 						</div>
 
 						<div class="yline2_11"></div>
-						<div class="rect2_1">
+						<div class="rect2_1" style="border:1px solid black">
 							<p class="text_ss2_1">1#水栓</p>
 						</div>
 						<div class="yline2_12"></div>
 
 						<div class="yline2_21"></div>
-						<div class="rect2_2">
+						<div class="rect2_2" style="border:1px solid black">
 							<p class="text_ss2_2">2#水栓</p>
 						</div>
 						<div class="yline2_22"></div>
 
 						<div class="yline2_31"></div>
-						<div class="rect2_3">
+						<div class="rect2_3" style="border:1px solid black">
 							<p class="text_ss2_3">3#水栓</p>
 						</div>
 						<div class="yline2_32"></div>
 					</div>
-
 					<div class="beizhu">
 						<p>运行：</p>
 						<div class="bz1"></div>
@@ -379,32 +321,8 @@
 						<div class="bz3"></div>
 						</br>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
-
-
-<!-- test -->
-<script type="text/javascript">
-	window.onload(function requestData(){
-		$.ajax({
-			url:"pumpmachine/info.do",
-			type:"post",
-			dataType:"json",
-			
-			success:function(data){
-				alert(data);
-			},
-			error: function (msg) {
-				alert("ajax连接异常：" + msg);
-			}
-		});
-	});
-
-</script>
-	
-	
 </body>
 </html>

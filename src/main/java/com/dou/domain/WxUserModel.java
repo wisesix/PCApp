@@ -9,6 +9,14 @@ import java.util.Date;
  *
  */
 public class WxUserModel {
+	/**
+	 * (1)所属水泵的水泵编码(code）及运行状态(codestatus)
+	 * (2)所属水栓的水栓编号(machinecde）及运行状态(usestatusA)
+	 * (3)累计浇灌时间(cumtime)、累计消费金额(cumamount)、累计用水量(cumwater)、账户余额(staus)
+	 * (4)水泵控制方式(controlmode) 
+	 * 运行状态：正常1停止0故障2 
+	 * 控制方式：自动1手动0
+	 */
 	// 水泵编码
 	private String code;
 	// 运行状态

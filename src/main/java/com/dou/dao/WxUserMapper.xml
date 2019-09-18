@@ -20,7 +20,7 @@
 
 <select id="selectWxUserModel" resultMap="ResultMap" parameterType="com.dou.domain.WxUserModel">
 		select
-			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatusA,tm.usestatusB,tm.usestatusC,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
+			tp.code,tp.codestatus,tp.controlmode,tm.machinecde,tm.usestatusA,tc.cumtime,tc.cumamount,tc.cumwater,pay.staus
 		from 
 			tb_pump tp
 		left join 

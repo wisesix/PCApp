@@ -34,6 +34,7 @@ public class WXUserIndexController {
 	public void index(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 
 		List<WxUserModel> user = wxUserService.selectWxUserModel(request.getParameter("phone"));
+		
 		printWriter.write(JSON.toJSONString(user));
 	}
 	
