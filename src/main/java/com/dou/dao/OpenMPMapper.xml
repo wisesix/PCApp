@@ -10,7 +10,18 @@
 		where t1.machinecde = #{machinecde}
 	</update>
 
-	<resultMap type="com.dou.domain.OpenMP" id="BaseResultMap">
+
+<update id="selectOpenMP" parameterType="com.dou.domain.OpenMP">
+		update tb_machine t1
+		left join tb_pump t2 on t1.phone=t2.phone
+		set t1.usestatusA = '0'
+		,t2.codestatus = '0'
+		where t1.machinecde = #{machinecde}
+	</update>
+
+
+
+<!-- 	<resultMap type="com.dou.domain.OpenMP" id="BaseResultMap">
 		<result column="phone" jdbcType="VARCHAR" property="phone" />
 		<result column="codestatus" jdbcType="VARCHAR"
 			property="codestatus" />
@@ -28,5 +39,5 @@
 		tb_machine tm
 		ON
 		tp.phone = tm.phone
-	</select>
+	</select> -->
 </mapper>

@@ -21,10 +21,10 @@ public class OpenMPServiceImpl implements OpenMPService{
 	}
 
 	@Override
-	public OpenMP selectOpenMP(OpenMP openMP) {
+	public void selectOpenMP(OpenMP openMP) {
 		// TODO Auto-generated method stub
-		return OpenMPMapper.selectOpenMP(openMP);
+		OpenMPMapper.selectOpenMP(openMP);
 	}
-	
+
 
 }

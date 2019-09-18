@@ -10,5 +10,5 @@ public interface OpenMPService {
 	void insertOpenMP(OpenMP openMP);
 
 	// 查询水泵、水栓状态为0时返回给小程序（关）
-	OpenMP selectOpenMP(OpenMP openMP);
+	void selectOpenMP(OpenMP openMP);
 }
