@@ -1,6 +1,7 @@
 package com.dou.web;
 
-
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,11 +24,12 @@ public class OpenMPController {
 
 		try {
 			openMPService.insertOpenMP(openMP);
-			return "ok";
+			return "1";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("开栓报错:" + e.getMessage());
-			return "error";
+			Map<String, Object> map = new HashMap<String, Object>();
+			return "0";
 		}
 	}
 
@@ -36,12 +38,12 @@ public class OpenMPController {
 	public String mpclose(OpenMP openMP) {
 
 		try {
-			openMPService.selectOpenMP(openMP);;
-			return "ok";
+			openMPService.selectOpenMP(openMP);
+			return "1";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println("关栓报错:" + e.getMessage());
-			return "error";
+			return "0";
 		}
 	}
 

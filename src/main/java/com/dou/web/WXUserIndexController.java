@@ -17,7 +17,8 @@ import com.dou.domain.WxUserModel;
 import com.dou.service.WxUserService;
 
 /**
- * 	用户首页信息
+ * 用户首页信息
+ * 
  * @author Dell
  *
  */
@@ -25,17 +26,17 @@ import com.dou.service.WxUserService;
 @Controller
 @RequestMapping("/userindex")
 public class WXUserIndexController {
-	
+
 	@Autowired
 	WxUserService wxUserService;
-	
-	@RequestMapping(value = "/index", method = { RequestMethod.GET }, produces = "application/json; charset=utf-8")
+
+	@RequestMapping(value = "/homeinfo", method = { RequestMethod.GET }, produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public void index(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+	public void homeinfo(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 
 		List<WxUserModel> user = wxUserService.selectWxUserModel(request.getParameter("phone"));
-		
+
 		printWriter.write(JSON.toJSONString(user));
 	}
-	
+
 }

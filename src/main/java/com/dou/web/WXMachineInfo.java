@@ -1,5 +1,7 @@
 package com.dou.web;
-
+/**
+ * 水栓信息
+ */
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;

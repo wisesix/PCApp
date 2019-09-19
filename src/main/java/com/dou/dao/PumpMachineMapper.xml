@@ -8,12 +8,13 @@
 		<result column="codestatus" jdbcType="VARCHAR" property="codestatus" />
 		<result column="code" jdbcType="VARCHAR" property="code" />
 		<result column="machinecde" jdbcType="VARCHAR" property="machinecde" />
+		<result column="controlmode" jdbcType="VARCHAR" property="controlmode" />
 		<result column="phone" jdbcType="VARCHAR" property="phone" />
 	</resultMap>
 	
 	
 	<select id="pumpmachineinfo" resultType="com.dou.domain.PumpMachine" parameterType="com.dou.domain.PumpMachine">
- 	select tm.usestatusA,tm.usestatusB,tm.usestatusC,tp.codestatus,tp.code,tm.machinecde  
+ 	select tm.usestatusA,tm.usestatusB,tm.usestatusC,tp.codestatus,tp.code,tm.machinecde,tp.controlmode  
  		from tb_pump tp
  		left join tb_machine tm ON tp.phone = tm.phone
  	</select>

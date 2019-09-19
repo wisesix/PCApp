@@ -62,7 +62,7 @@
 <script type="text/javascript">
 	function changeColor() {
 		var datas = [];
-		$.ajax({ 
+		$.ajax({
 			type : "post",
 			url : "pumpmachine/info.do",
 			data : {},
@@ -75,86 +75,95 @@
 						usestatusA    1#水泵下的   1#水栓      0 红色     1绿色   2 黄色
 						usestatusB    1#水泵下的   2#水栓      0 红色     1绿色   2 黄色
 						usestatusC   1#水泵下的   3#水栓      0 红色     1绿色   2 黄色
-						**/
-						if(arr[i].codestatus == 0){
+						 **/
+						 //1#水泵控制模式
+						if (arr[i].controlmode == 0) {
+							//自动
+							$(".circle1_1").addClass('red');
+						} else {
+							// 手动
+							$(".circle1_1").addClass('green');
+						} 
+
+						if (arr[i].codestatus == 0) {
 							//一号水泵
 							$(".circle1_3").addClass('red');
-						}else if(arr[i].codestatus == 1){
+						} else if (arr[i].codestatus == 1) {
 							$(".circle1_3").addClass('green');
-						}else{
+						} else {
 							$(".circle1_3").addClass('orange');
 						}
-						
+
 						//一号水泵 一号水栓
-						 if(arr[i].usestatusA == 0){
+						if (arr[i].usestatusA == 0) {
 							$(".rect1_1").addClass('red');
-						}else if(arr[i].usestatusA == 1){
+						} else if (arr[i].usestatusA == 1) {
 							$(".rect1_1").addClass('green');
-						}else{
+						} else {
 							$(".rect1_1").addClass('orange');
 						}
-						
+
 						//一号水泵 二号水栓
-						 if(arr[i].usestatusB == 0){
+						if (arr[i].usestatusB == 0) {
 							$(".rect1_2").addClass('red');
-						}else if(arr[i].usestatusB == 1){
+						} else if (arr[i].usestatusB == 1) {
 							$(".rect1_2").addClass('green');
-						}else{
+						} else {
 							$(".rect1_2").addClass('orange');
-						} 
-						
+						}
+
 						//一号水泵 三号水栓
-						 if(arr[i].usestatusC == 0){
+						if (arr[i].usestatusC == 0) {
 							$(".machine3").addClass('red');
-						}else if(arr[i].usestatusC == 1){
+						} else if (arr[i].usestatusC == 1) {
 							$(".machine3").addClass('green');
-						}else{
+						} else {
 							$(".machine3").addClass('orange');
-						} 
-						 
-					} else if (arr[i].code == "sb002") {
-						//二号水泵
-						if(arr[i].codestatus == 0){
+						}
+
+					}  else if (arr[i].code == "sb002") {
+						/*//二号水泵
+						if (arr[i].codestatus == 0) {
 							$(".circle2_3").addClass('red');
-						}else if(arr[i].codestatus == 1){
+						} else if (arr[i].codestatus == 1) {
 							$(".circle2_3").addClass('green');
-						}else{
+						} else {
 							$(".circle2_3").addClass('orange');
 						}
 						//ok当弹出  有的时候 这一段就可以删掉了
 						////////////////
-						if(arr[i].usestatusA){
+						if (arr[i].usestatusA) {
 							alert("有");
-						}else{
+						} else {
 							alert("无");
 						}
 						//////////////
 						//二号水泵 一号水栓
-						  if(arr[i].usestatusA == 0){
+						if (arr[i].usestatusA == 0) {
 							$(".rect2_1").addClass('red');
-						}else if(arr[i].usestatusA == 1){
+						} else if (arr[i].usestatusA == 1) {
 							$(".rect2_1").addClass('green');
-						}else{
+						} else {
 							$(".rect2_1").addClass('orange');
-						} 
-						
+						}
+
 						//二号水泵 二号水栓
-						 if(arr[i].usestatusB == 0){
+						if (arr[i].usestatusB == 0) {
 							$(".rect2_2").addClass('red');
-						}else if(arr[i].usestatusB == 1){
+						} else if (arr[i].usestatusB == 1) {
 							$(".rect2_2").addClass('green');
-						}else{
+						} else {
 							$(".rect2_2").addClass('orange');
-						} 
-						
-						 //二号水泵 三号水栓
-						 if(arr[i].usestatusC == 0){
+						}
+
+						//二号水泵 三号水栓
+						if (arr[i].usestatusC == 0) {
 							$(".rect2_3").addClass('red');
-						}else if(arr[i].usestatusC == 1){
+						} else if (arr[i].usestatusC == 1) {
 							$(".rect2_3").addClass('green');
-						}else{
+						} else {
 							$(".rect2_3").addClass('orange');
-						}  
+						} */
 					}
 				}
 			},
@@ -163,9 +172,7 @@
 	$(document).ready(function() {
 		//循环执行，每隔1秒钟执行一次 1000 
 		var t1 = window.setInterval(changeColor, 1000);
-	}); 
-	
-	
+	});
 </script>
 
 <script type="text/javascript">
@@ -222,17 +229,15 @@
 				<!-- 左侧控制方式模块布局 -->
 				<div class="kztitle">
 					<p class="sbmtitle">控制方式：</p>
-					<div class="circle1_1"></div>
-					<div class="circle1_2"></div>
+					<div class="circle1_1" style="border: 1px solid black"></div>
 				</div>
 				<div class="zstitle">
-					<p class="zidong">自动</p>
-					<p class="shoudong">手动</p>
+					<p class="zidong">自动红色/手动绿色</p>
 				</div>
 
 				<!-- 左侧水泵水栓模块布局 -->
 				<div class="sbsstitle">
-					<div class="circle1_3" style="border:1px solid black">
+					<div class="circle1_3" style="border: 1px solid black">
 						<p class="text_ss1_0">1#水泵</p>
 					</div>
 					<div class="xline"></div>
@@ -244,18 +249,18 @@
 						</div>
 
 						<div class="yline1_11"></div>
-						<div class="rect1_1" style="border:1px solid black">
+						<div class="rect1_1" style="border: 1px solid black">
 							<p class="text_ss1_1">1#水栓</p>
 						</div>
 						<div class="yline1_12"></div>
 
 						<div class="yline1_21"></div>
-						<div class="rect1_2" style="border:1px solid black">
+						<div class="rect1_2" style="border: 1px solid black">
 							<p class="text_ss1_2">2#水栓</p>
 						</div>
 						<div class="yline1_22"></div>
 						<div class="yline1_31"></div>
-						<div class="machine3" style="border:1px solid black">
+						<div class="machine3" style="border: 1px solid black">
 							<p class="text_ss1_3">3#水栓</p>
 						</div>
 						<div class="yline1_32"></div>
@@ -281,7 +286,7 @@
 
 				<!-- 右侧水泵水栓模块布局 -->
 				<div class="sbsstitle">
-					<div class="circle2_3" style="border:1px solid black">
+					<div class="circle2_3" style="border: 1px solid black">
 						<p class="text_ss2_0">2#水泵</p>
 					</div>
 					<div class="xline"></div>
@@ -293,19 +298,19 @@
 						</div>
 
 						<div class="yline2_11"></div>
-						<div class="rect2_1" style="border:1px solid black">
+						<div class="rect2_1" style="border: 1px solid black">
 							<p class="text_ss2_1">1#水栓</p>
 						</div>
 						<div class="yline2_12"></div>
 
 						<div class="yline2_21"></div>
-						<div class="rect2_2" style="border:1px solid black">
+						<div class="rect2_2" style="border: 1px solid black">
 							<p class="text_ss2_2">2#水栓</p>
 						</div>
 						<div class="yline2_22"></div>
 
 						<div class="yline2_31"></div>
-						<div class="rect2_3" style="border:1px solid black">
+						<div class="rect2_3" style="border: 1px solid black">
 							<p class="text_ss2_3">3#水栓</p>
 						</div>
 						<div class="yline2_32"></div>

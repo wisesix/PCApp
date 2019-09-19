@@ -56,11 +56,6 @@ public class WXOperatorlogsController {
 			}
 			Operatorlogs operatorlogs2 = wXOperatorlogsService.getOperatorList(operatorlogs).get(0);
 			Integer realtime = DateUtil.differMinute(new Date(), operatorlogs2.getStart());
-			/*
-			 * if(operatorlogs2.getStatus() == 1) {
-			 * 
-			 * }
-			 */
 			operatorlogs2.setEnd(new Date());
 			operatorlogs2.setStatus(1);
 			float total = realtime * price;

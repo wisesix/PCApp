@@ -5,15 +5,27 @@ public class PumpMachine {
 	private String usestatusA;
 	private String usestatusB;
 	private String usestatusC;
+	private String controlmode;
 
 	private String codestatus;
 	private String code;
 	private String machinecde;
 
+	
+
 	@Override
 	public String toString() {
 		return "PumpMachine [usestatusA=" + usestatusA + ", usestatusB=" + usestatusB + ", usestatusC=" + usestatusC
-				+ ", codestatus=" + codestatus + ", code=" + code + ", machinecde=" + machinecde + "]";
+				+ ", controlmode=" + controlmode + ", codestatus=" + codestatus + ", code=" + code + ", machinecde="
+				+ machinecde + "]";
+	}
+
+	public String getControlmode() {
+		return controlmode;
+	}
+
+	public void setControlmode(String controlmode) {
+		this.controlmode = controlmode;
 	}
 
 	public String getUsestatusA() {
