@@ -24,42 +24,35 @@ import com.dou.utils.ResponseRowsData;
 @Controller
 @RequestMapping("/pumpinfo")
 public class WXPumpInfo {
-	
+
 	@Autowired
 	private WXInserPumpSercice wXInserPumpSercice;
 
 	@RequestMapping(value = "/info", method = { RequestMethod.GET })
 	@ResponseBody
-	public void info(HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
+	public void info(HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
 
 		List<WXPumpModel> pump = wXInserPumpSercice.insertPumpinfo(request.getParameter("phone"));
 
-		
 		printWriter.write(JSON.toJSONString(pump));
 	}
-	
-	
-	
-	@RequestMapping(value = "/zhexian", 
-			method = { RequestMethod.POST }, 
-			produces = "application/json; charset=utf-8")
+
+	@RequestMapping(value = "/zhexian", method = { RequestMethod.POST }, produces = "application/json; charset=utf-8")
 	@ResponseBody
 	public ResponseData zhexian(HttpServletRequest request) {
-		
+
 		ResponseData data = new ResponseData();
 		List<WXPumpModel> pump = wXInserPumpSercice.selectZhexian(request.getParameter("code"));
-		 ResponseRowsData rows = new ResponseRowsData();
-	        rows.setResult(pump);
-	        rows.setTotal((long) pump.size());
-	        data.setData(rows);
+		ResponseRowsData rows = new ResponseRowsData();
+		rows.setResult(pump);
+		rows.setTotal((long) pump.size());
+		data.setData(rows);
 		return data;
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/jiankong", method = { RequestMethod.GET })
-	public String jiankong(ModelAndView map,HttpServletRequest request,PrintWriter printWriter,HttpSession session) {
-		
+	public String jiankong(ModelAndView map, HttpServletRequest request, PrintWriter printWriter, HttpSession session) {
+
 		List<WXPumpModel> list = wXInserPumpSercice.getWebjk(request.getParameter("phone"));
 		WXPumpModel model = new WXPumpModel();
 		model.setVoltage("22");
@@ -68,7 +61,5 @@ public class WXPumpInfo {
 		System.out.println(list);
 		return "device";
 	}
-	
-	
-	
+
 }

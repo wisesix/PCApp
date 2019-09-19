@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.OcpmMapper">
+
+	<update id="openOcpminfo" parameterType="java.lang.String">
+		update tb_ocpm
+		set
+		openpump = '1',openmachine = '1'
+		where machinecde = #{machinecde}
+	</update>
+
+	<update id="closeOcpminfo" parameterType="java.lang.String">
+		update tb_ocpm
+		set
+		closepump = '1',closemachine = '1'
+		where machinecde = #{machinecde}
+	</update>
+
+	<resultMap id="BaseResultMap" type="com.dou.domain.Ocpm">
+		<result column="fopenpump" jdbcType="VARCHAR"
+			property="fopenpump" />
+		<result column="fopenmachine" jdbcType="VARCHAR"
+			property="fopenmachine" />
+		<result column="fclosepump" jdbcType="VARCHAR"
+			property="fclosepump" />
+		<result column="fclosemachine" jdbcType="VARCHAR"
+			property="fclosemachine" />
+		<result column="machinecde" jdbcType="VARCHAR"
+			property="machinecde" />
+	</resultMap>
+
+
+
+	<select parameterType="java.lang.String" id="fopenOcpminfo"
+		resultMap="BaseResultMap">
+		SELECT
+		t.fopenpump,t.fopenmachine
+		FROM tb_ocpm t
+		WHERE
+		machinecde =
+		#{machinecde}
+	</select>
+
+	<select parameterType="java.lang.String" id="fcloseOcpminfo"
+		resultMap="BaseResultMap">
+		SELECT
+		t.fclosepump,t.fclosemachine
+		FROM tb_ocpm t
+		WHERE
+		machinecde =
+		#{machinecde}
+	</select>
+
+</mapper>
