@@ -17,7 +17,12 @@ import com.dou.domain.WxUserModel;
 import com.dou.service.PumpMachineControllerService;
 import com.dou.utils.ResponseData;
 import com.dou.utils.ResponseRowsData;
-
+/**
+ * test
+ * 把改页面的的值 换到 OcpmController
+ * @author Dell
+ *
+ */
 @Controller
 @RequestMapping("/pumpmachine")
 public class PumpMachineController {
