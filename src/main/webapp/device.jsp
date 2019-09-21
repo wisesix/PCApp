@@ -270,51 +270,8 @@
 
 
 
-			<!-- 右侧水泵布局 -->
 			<div class="colright">
-
-				<!--右侧控制方式模块布局 -->
-				<div class="kztitle">
-					<p class="sbmtitle">控制方式：</p>
-					<div class="circle2_1"></div>
-					<div class="circle2_2"></div>
-				</div>
-				<div class="zstitle">
-					<p class="zidong">自动</p>
-					<p class="shoudong">手动</p>
-				</div>
-
-				<!-- 右侧水泵水栓模块布局 -->
 				<div class="sbsstitle">
-					<div class="circle2_3" style="border: 1px solid black">
-						<p class="text_ss2_0">2#水泵</p>
-					</div>
-					<div class="xline"></div>
-
-					<div class="scbj">
-						<div class="yline2_0"></div>
-						<div class="rect2_0">
-							<p class="text_sc2">水池</p>
-						</div>
-
-						<div class="yline2_11"></div>
-						<div class="rect2_1" style="border: 1px solid black">
-							<p class="text_ss2_1">1#水栓</p>
-						</div>
-						<div class="yline2_12"></div>
-
-						<div class="yline2_21"></div>
-						<div class="rect2_2" style="border: 1px solid black">
-							<p class="text_ss2_2">2#水栓</p>
-						</div>
-						<div class="yline2_22"></div>
-
-						<div class="yline2_31"></div>
-						<div class="rect2_3" style="border: 1px solid black">
-							<p class="text_ss2_3">3#水栓</p>
-						</div>
-						<div class="yline2_32"></div>
-					</div>
 					<div class="beizhu">
 						<p>运行：</p>
 						<div class="bz1"></div>

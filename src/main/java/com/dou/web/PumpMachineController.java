@@ -33,12 +33,8 @@ public class PumpMachineController {
 			method = { RequestMethod.POST })
 	@ResponseBody
 	public List<PumpMachine> info(HttpServletRequest request) {
-		
 		List<PumpMachine> pm = pumpMachineControllerService.pumpmachineinfo(request.getParameter("code"));
-		
 		System.out.println("pm" + pm);
-	
-		
 		return pm;
 	}
 	
