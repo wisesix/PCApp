@@ -31,7 +31,6 @@ public class OcpmController {
 		map.put("res", 0);
 		String machinecde = request.getParameter("machinecde");
 		System.out.println(machinecde);
-		System.out.println("8888888888888");
 		if (!StringUtils.isBlank(machinecde) && !StringUtils.isBlank(machinecde)) {
 			ocpmService.openOcpminfo(machinecde);
 			map.put("res", 1);

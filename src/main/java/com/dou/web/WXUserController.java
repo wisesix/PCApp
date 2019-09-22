@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,12 +25,11 @@ public class WXUserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/getuser")
+	@RequestMapping(value = "/getuser", method = { RequestMethod.GET })
 	@ResponseBody
 	public void getUser(PrintWriter printWriter,String userName,String passWord, HttpSession session) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		
 		
 		map.put("res", 0);
 		if(!StringUtils.isBlank(userName) && !StringUtils.isBlank(passWord)) {
@@ -40,9 +40,6 @@ public class WXUserController {
 				}
 			}
 		}
-		
-		
 		printWriter.write(JSON.toJSONString(map));
 	}
-
 }

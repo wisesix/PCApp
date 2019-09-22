@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dou.dao.ReportFormMapper">
+	<resultMap id="BaseResultMap"
+		type="com.dou.domain.ReportForm">
+		<result column="code" jdbcType="VARCHAR" property="code" />
+		<result column="machinecde" jdbcType="VARCHAR"
+			property="machinecde" />
+		<result column="villagers" jdbcType="VARCHAR"
+			property="villagers" />
+		<result column="dtu" jdbcType="VARCHAR" property="dtu" />
+		<result column="dtuport" jdbcType="VARCHAR" property="dtuport" />
+		<result column="voltage" jdbcType="VARCHAR" property="voltage" />
+		<result column="current" jdbcType="VARCHAR" property="current" />
+		<result column="power" jdbcType="VARCHAR" property="power" />
+	</resultMap>
+	<select id="selectReportForminfo"
+		parameterType="com.dou.domain.ReportForm" resultMap="BaseResultMap">
+		SELECT
+		t.code,t.machinecde,t.villagers,t.dtu,t.dtuport,t.voltage,t.current,t.power
+		FROM tb_pump t
+	</select>
+
+</mapper>

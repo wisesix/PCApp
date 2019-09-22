@@ -2,14 +2,15 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dou.dao.UserTestMapper">
+	<resultMap id="BaseResultMap" type="com.dou.domain.UserTest">
+		<result column="id" jdbcType="VARCHAR" property="id" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="role_id" jdbcType="VARCHAR" property="role_id" />
+	</resultMap>
 
-
-	<select id="">
-		SELECT * FROM menu m
-		LEFT JOIN menu_role mr ON m.id = mr.menu_id
-		LEFT JOIN role r ON r.id = mr.role_id
-		LEFT JOIN user u ON u.role_id = r.id
-		WHERE u.name = 'lisi'
+	<select id="getUserTest" parameterType="com.dou.domain.UserTest" resultMap="BaseResultMap">
+		SELECT u.id,u.name,u.role_id
+		FROM user u
 	</select>
 
 </mapper>

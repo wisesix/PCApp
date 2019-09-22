@@ -7,23 +7,20 @@
 <title>数据统计</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
-
 	<div class="place">
-    	<span>数据统计</span>
-    </div>
-    
-    <div class="formbody">
-    
-    <div class="formtitle"><span>数据统计</span></div>
-    
-    <table class="tablelist">
+		<span>数据统计</span>
+	</div>
+	<div class="formbody">
+		<div class="formtitle">
+			<span>数据统计</span>
+		</div>
+		<table class="tablelist">
 			<thead>
 				<tr>
 					<th>序号</th>
-					<th>设备编码</th>
-					<th>设备名称</th>
+					<th>水泵编码</th>
+					<th>水栓编码</th>
 					<th>地理位置</th>
 					<th>DTU编号</th>
 					<th>DTU端口</th>
@@ -37,9 +34,47 @@
 					<th>水栓水量</th>
 				</tr>
 			</thead>
+			<tbody>
+				<c:forEach items="${listr}" var="r">
+					<tr>
+						<td>${r.code }</td>
+						<td>${r.machinecde }</td>
+						<td>${r.villagers }</td>
+						<td>${r.dtu }</td>
+						<td>${r.dtuport }</td>
+						<td>${r.voltage }</td>
+						<td>${r.current }</td>
+						<td>${r.power }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
-    
-    </div>
+	</div>
+	
+	<!-- 查询结果 -->
+	<div class="box" id="queryTable" hidden></div>
+	<div class="box" id="addUserfrom" hidden></div>
+	
+	<script type="text/javascript">
+		$('.tablelist tbody tr:odd').addClass('odd');
+		$(document).ready(function(){
+			getreportform();
+			}); 
+		function getreportform() {
+			$.ajax({
+				type : "post",
+				url : "reportform/shuju.do",
+				success : function(html) {
+					$("#queryTable").html(html);
+					$("#queryTable").show();
+					$("#addUserfrom").hide();
+				},
+				error : function(e) {
+					alert("获取数据失败");
+				}
+			});
+		}
+
 </body>
 </html>
 

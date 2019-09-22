@@ -9,6 +9,7 @@
 		where machinecde = #{machinecde}
 	</update>
 
+
 	<update id="closeOcpminfo" parameterType="java.lang.String">
 		update tb_ocpm
 		set

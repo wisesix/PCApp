@@ -3,7 +3,7 @@
     margin:20px 20px 20px 20px;
     width:96%;
     height:600px;
-    border:1px solid #999;
+    border:none;
     
 }
 
@@ -16,26 +16,27 @@
     margin:20px 0px 20px 0px;
 }
 .colleft{
-    float:left;
-    width:50%;
+    float:center;
+    width:100%;
     height:480px;
     border:none;
     box-sizing:border-box;/*怪异盒子模型*/
+    margin:20px 0px 20px 400px;
 }
 .colright{
-    float:right;
-    width:50%;
-    height:480px;
+    float:foot;
+    
     border:none;
     box-sizing:border-box;/*怪异盒子模型*/
+    margin:-200px 0px 20px 700px;
 }
 .sbtitle{
 	width: 100%;
 	height: 45px;
 	display: block;
 	line-height: 45px;
-	text-align: center;
-	font-size:40px;
+	text-align: left;
+	font-size:25px;
 }
 .kztitle{
 	float:left;
@@ -63,6 +64,7 @@
 	border-radius: 50%;      
 	-moz-border-radius: 50%;      
 	-webkit-border-radius: 50%;  
+	margin:0px 0px 0px 30px;
 }
 .circle1_2{
 	float:left;
@@ -102,7 +104,7 @@
 	folat:left;
 	height:170px;
  	border-left:#000 solid 1px;
- 	margin:0px 0px 0px 20px;
+ 	margin:-100px 0px 0px 20px;
 }
 .rect1_0{
 	width: 50px;
@@ -112,10 +114,11 @@
 }
 
 .yline1_11{
+	clear:both;
 	folat:left;
 	height:65px;
  	border-left:#000 solid 1px;
- 	margin:-232px 0px 0px 80px;
+ 	margin:-280px 0px 0px 80px;
 }
 .rect1_1{
 	width: 20px;
